@@ -23,7 +23,7 @@
 // - protoc             (unknown)
 // source: Rpc.proto
 
-package go-eosgrpc
+package go_eosgrpc
 
 import (
 	context "context"
