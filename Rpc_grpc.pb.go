@@ -38,14 +38,13 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Eos_Ping_FullMethodName                = "/eos.rpc.Eos/Ping"
-	Eos_MD_FullMethodName                  = "/eos.rpc.Eos/MD"
-	Eos_Find_FullMethodName                = "/eos.rpc.Eos/Find"
-	Eos_NsStat_FullMethodName              = "/eos.rpc.Eos/NsStat"
-	Eos_ContainerInsert_FullMethodName     = "/eos.rpc.Eos/ContainerInsert"
-	Eos_FileInsert_FullMethodName          = "/eos.rpc.Eos/FileInsert"
-	Eos_Exec_FullMethodName                = "/eos.rpc.Eos/Exec"
-	Eos_ManilaServerRequest_FullMethodName = "/eos.rpc.Eos/ManilaServerRequest"
+	Eos_Ping_FullMethodName            = "/eos.rpc.Eos/Ping"
+	Eos_MD_FullMethodName              = "/eos.rpc.Eos/MD"
+	Eos_Find_FullMethodName            = "/eos.rpc.Eos/Find"
+	Eos_NsStat_FullMethodName          = "/eos.rpc.Eos/NsStat"
+	Eos_ContainerInsert_FullMethodName = "/eos.rpc.Eos/ContainerInsert"
+	Eos_FileInsert_FullMethodName      = "/eos.rpc.Eos/FileInsert"
+	Eos_Exec_FullMethodName            = "/eos.rpc.Eos/Exec"
 )
 
 // EosClient is the client API for Eos service.
@@ -65,8 +64,6 @@ type EosClient interface {
 	FileInsert(ctx context.Context, in *FileInsertRequest, opts ...grpc.CallOption) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOption) (*NSResponse, error)
-	// Manila Driver
-	ManilaServerRequest(ctx context.Context, in *ManilaRequest, opts ...grpc.CallOption) (*ManilaResponse, error)
 }
 
 type eosClient struct {
@@ -186,15 +183,6 @@ func (c *eosClient) Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOp
 	return out, nil
 }
 
-func (c *eosClient) ManilaServerRequest(ctx context.Context, in *ManilaRequest, opts ...grpc.CallOption) (*ManilaResponse, error) {
-	out := new(ManilaResponse)
-	err := c.cc.Invoke(ctx, Eos_ManilaServerRequest_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // EosServer is the server API for Eos service.
 // All implementations should embed UnimplementedEosServer
 // for forward compatibility
@@ -212,8 +200,6 @@ type EosServer interface {
 	FileInsert(context.Context, *FileInsertRequest) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(context.Context, *NSRequest) (*NSResponse, error)
-	// Manila Driver
-	ManilaServerRequest(context.Context, *ManilaRequest) (*ManilaResponse, error)
 }
 
 // UnimplementedEosServer should be embedded to have forward compatible implementations.
@@ -240,9 +226,6 @@ func (UnimplementedEosServer) FileInsert(context.Context, *FileInsertRequest) (*
 }
 func (UnimplementedEosServer) Exec(context.Context, *NSRequest) (*NSResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Exec not implemented")
-}
-func (UnimplementedEosServer) ManilaServerRequest(context.Context, *ManilaRequest) (*ManilaResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ManilaServerRequest not implemented")
 }
 
 // UnsafeEosServer may be embedded to opt out of forward compatibility for this service.
@@ -388,24 +371,6 @@ func _Eos_Exec_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Eos_ManilaServerRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ManilaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EosServer).ManilaServerRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Eos_ManilaServerRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EosServer).ManilaServerRequest(ctx, req.(*ManilaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Eos_ServiceDesc is the grpc.ServiceDesc for Eos service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -432,10 +397,6 @@ var Eos_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Exec",
 			Handler:    _Eos_Exec_Handler,
-		},
-		{
-			MethodName: "ManilaServerRequest",
-			Handler:    _Eos_ManilaServerRequest_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
