@@ -39,7 +39,9 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	Eos_Ping_FullMethodName            = "/eos.rpc.Eos/Ping"
+	Eos_Notify_FullMethodName          = "/eos.rpc.Eos/Notify"
 	Eos_MD_FullMethodName              = "/eos.rpc.Eos/MD"
+	Eos_Notification_FullMethodName    = "/eos.rpc.Eos/Notification"
 	Eos_Find_FullMethodName            = "/eos.rpc.Eos/Find"
 	Eos_NsStat_FullMethodName          = "/eos.rpc.Eos/NsStat"
 	Eos_ContainerInsert_FullMethodName = "/eos.rpc.Eos/ContainerInsert"
@@ -53,8 +55,11 @@ const (
 type EosClient interface {
 	// Replies to a ping
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error)
+	// Replise to a notification
+	Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
 	MD(ctx context.Context, in *MDRequest, opts ...grpc.CallOption) (Eos_MDClient, error)
+	Notification(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (Eos_NotificationClient, error)
 	// Replies to Find requests with a stream
 	Find(ctx context.Context, in *FindRequest, opts ...grpc.CallOption) (Eos_FindClient, error)
 	// Replies to a NsStat operation
@@ -77,6 +82,15 @@ func NewEosClient(cc grpc.ClientConnInterface) EosClient {
 func (c *eosClient) Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error) {
 	out := new(PingReply)
 	err := c.cc.Invoke(ctx, Eos_Ping_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eosClient) Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error) {
+	out := new(NotificationResponse)
+	err := c.cc.Invoke(ctx, Eos_Notify_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -115,8 +129,40 @@ func (x *eosMDClient) Recv() (*MDResponse, error) {
 	return m, nil
 }
 
+func (c *eosClient) Notification(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (Eos_NotificationClient, error) {
+	stream, err := c.cc.NewStream(ctx, &Eos_ServiceDesc.Streams[1], Eos_Notification_FullMethodName, opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &eosNotificationClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Eos_NotificationClient interface {
+	Recv() (*NotificationResponse, error)
+	grpc.ClientStream
+}
+
+type eosNotificationClient struct {
+	grpc.ClientStream
+}
+
+func (x *eosNotificationClient) Recv() (*NotificationResponse, error) {
+	m := new(NotificationResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 func (c *eosClient) Find(ctx context.Context, in *FindRequest, opts ...grpc.CallOption) (Eos_FindClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Eos_ServiceDesc.Streams[1], Eos_Find_FullMethodName, opts...)
+	stream, err := c.cc.NewStream(ctx, &Eos_ServiceDesc.Streams[2], Eos_Find_FullMethodName, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -189,8 +235,11 @@ func (c *eosClient) Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOp
 type EosServer interface {
 	// Replies to a ping
 	Ping(context.Context, *PingRequest) (*PingReply, error)
+	// Replise to a notification
+	Notify(context.Context, *NotificationRequest) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
 	MD(*MDRequest, Eos_MDServer) error
+	Notification(*NotificationRequest, Eos_NotificationServer) error
 	// Replies to Find requests with a stream
 	Find(*FindRequest, Eos_FindServer) error
 	// Replies to a NsStat operation
@@ -209,8 +258,14 @@ type UnimplementedEosServer struct {
 func (UnimplementedEosServer) Ping(context.Context, *PingRequest) (*PingReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedEosServer) Notify(context.Context, *NotificationRequest) (*NotificationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Notify not implemented")
+}
 func (UnimplementedEosServer) MD(*MDRequest, Eos_MDServer) error {
 	return status.Errorf(codes.Unimplemented, "method MD not implemented")
+}
+func (UnimplementedEosServer) Notification(*NotificationRequest, Eos_NotificationServer) error {
+	return status.Errorf(codes.Unimplemented, "method Notification not implemented")
 }
 func (UnimplementedEosServer) Find(*FindRequest, Eos_FindServer) error {
 	return status.Errorf(codes.Unimplemented, "method Find not implemented")
@@ -257,6 +312,24 @@ func _Eos_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Eos_Notify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EosServer).Notify(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Eos_Notify_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EosServer).Notify(ctx, req.(*NotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Eos_MD_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(MDRequest)
 	if err := stream.RecvMsg(m); err != nil {
@@ -275,6 +348,27 @@ type eosMDServer struct {
 }
 
 func (x *eosMDServer) Send(m *MDResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Eos_Notification_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(NotificationRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(EosServer).Notification(m, &eosNotificationServer{stream})
+}
+
+type Eos_NotificationServer interface {
+	Send(*NotificationResponse) error
+	grpc.ServerStream
+}
+
+type eosNotificationServer struct {
+	grpc.ServerStream
+}
+
+func (x *eosNotificationServer) Send(m *NotificationResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -383,6 +477,10 @@ var Eos_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Eos_Ping_Handler,
 		},
 		{
+			MethodName: "Notify",
+			Handler:    _Eos_Notify_Handler,
+		},
+		{
 			MethodName: "NsStat",
 			Handler:    _Eos_NsStat_Handler,
 		},
@@ -403,6 +501,11 @@ var Eos_ServiceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "MD",
 			Handler:       _Eos_MD_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "Notification",
+			Handler:       _Eos_Notification_Handler,
 			ServerStreams: true,
 		},
 		{
