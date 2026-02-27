@@ -38,15 +38,16 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Eos_Ping_FullMethodName            = "/eos.rpc.Eos/Ping"
-	Eos_Notify_FullMethodName          = "/eos.rpc.Eos/Notify"
-	Eos_MD_FullMethodName              = "/eos.rpc.Eos/MD"
-	Eos_Notification_FullMethodName    = "/eos.rpc.Eos/Notification"
-	Eos_Find_FullMethodName            = "/eos.rpc.Eos/Find"
-	Eos_NsStat_FullMethodName          = "/eos.rpc.Eos/NsStat"
-	Eos_ContainerInsert_FullMethodName = "/eos.rpc.Eos/ContainerInsert"
-	Eos_FileInsert_FullMethodName      = "/eos.rpc.Eos/FileInsert"
-	Eos_Exec_FullMethodName            = "/eos.rpc.Eos/Exec"
+	Eos_Ping_FullMethodName               = "/eos.rpc.Eos/Ping"
+	Eos_Notify_FullMethodName             = "/eos.rpc.Eos/Notify"
+	Eos_MD_FullMethodName                 = "/eos.rpc.Eos/MD"
+	Eos_Notification_FullMethodName       = "/eos.rpc.Eos/Notification"
+	Eos_Find_FullMethodName               = "/eos.rpc.Eos/Find"
+	Eos_NsStat_FullMethodName             = "/eos.rpc.Eos/NsStat"
+	Eos_ContainerInsert_FullMethodName    = "/eos.rpc.Eos/ContainerInsert"
+	Eos_FileInsert_FullMethodName         = "/eos.rpc.Eos/FileInsert"
+	Eos_Exec_FullMethodName               = "/eos.rpc.Eos/Exec"
+	Eos_TrafficShapingRate_FullMethodName = "/eos.rpc.Eos/TrafficShapingRate"
 )
 
 // EosClient is the client API for Eos service.
@@ -55,7 +56,7 @@ const (
 type EosClient interface {
 	// Replies to a ping
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error)
-	// Replise to a notification
+	// Replies to a notification
 	Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
 	MD(ctx context.Context, in *MDRequest, opts ...grpc.CallOption) (Eos_MDClient, error)
@@ -69,6 +70,7 @@ type EosClient interface {
 	FileInsert(ctx context.Context, in *FileInsertRequest, opts ...grpc.CallOption) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOption) (*NSResponse, error)
+	TrafficShapingRate(ctx context.Context, in *TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error)
 }
 
 type eosClient struct {
@@ -229,13 +231,45 @@ func (c *eosClient) Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOp
 	return out, nil
 }
 
+func (c *eosClient) TrafficShapingRate(ctx context.Context, in *TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error) {
+	stream, err := c.cc.NewStream(ctx, &Eos_ServiceDesc.Streams[3], Eos_TrafficShapingRate_FullMethodName, opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &eosTrafficShapingRateClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Eos_TrafficShapingRateClient interface {
+	Recv() (*TrafficShapingRateResponse, error)
+	grpc.ClientStream
+}
+
+type eosTrafficShapingRateClient struct {
+	grpc.ClientStream
+}
+
+func (x *eosTrafficShapingRateClient) Recv() (*TrafficShapingRateResponse, error) {
+	m := new(TrafficShapingRateResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // EosServer is the server API for Eos service.
 // All implementations should embed UnimplementedEosServer
 // for forward compatibility
 type EosServer interface {
 	// Replies to a ping
 	Ping(context.Context, *PingRequest) (*PingReply, error)
-	// Replise to a notification
+	// Replies to a notification
 	Notify(context.Context, *NotificationRequest) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
 	MD(*MDRequest, Eos_MDServer) error
@@ -249,6 +283,7 @@ type EosServer interface {
 	FileInsert(context.Context, *FileInsertRequest) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(context.Context, *NSRequest) (*NSResponse, error)
+	TrafficShapingRate(*TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error
 }
 
 // UnimplementedEosServer should be embedded to have forward compatible implementations.
@@ -281,6 +316,9 @@ func (UnimplementedEosServer) FileInsert(context.Context, *FileInsertRequest) (*
 }
 func (UnimplementedEosServer) Exec(context.Context, *NSRequest) (*NSResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Exec not implemented")
+}
+func (UnimplementedEosServer) TrafficShapingRate(*TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error {
+	return status.Errorf(codes.Unimplemented, "method TrafficShapingRate not implemented")
 }
 
 // UnsafeEosServer may be embedded to opt out of forward compatibility for this service.
@@ -465,6 +503,27 @@ func _Eos_Exec_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Eos_TrafficShapingRate_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(TrafficShapingRateRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(EosServer).TrafficShapingRate(m, &eosTrafficShapingRateServer{stream})
+}
+
+type Eos_TrafficShapingRateServer interface {
+	Send(*TrafficShapingRateResponse) error
+	grpc.ServerStream
+}
+
+type eosTrafficShapingRateServer struct {
+	grpc.ServerStream
+}
+
+func (x *eosTrafficShapingRateServer) Send(m *TrafficShapingRateResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 // Eos_ServiceDesc is the grpc.ServiceDesc for Eos service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -511,6 +570,11 @@ var Eos_ServiceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "Find",
 			Handler:       _Eos_Find_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "TrafficShapingRate",
+			Handler:       _Eos_TrafficShapingRate_Handler,
 			ServerStreams: true,
 		},
 	},
