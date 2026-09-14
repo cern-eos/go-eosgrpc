@@ -27,6 +27,7 @@ package go_eosgrpc
 
 import (
 	context "context"
+	trafficshaping "github.com/cern-eos/go-eosgrpc/trafficshaping"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -70,7 +71,7 @@ type EosClient interface {
 	FileInsert(ctx context.Context, in *FileInsertRequest, opts ...grpc.CallOption) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOption) (*NSResponse, error)
-	TrafficShapingRate(ctx context.Context, in *TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error)
+	TrafficShapingRate(ctx context.Context, in *trafficshaping.TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error)
 }
 
 type eosClient struct {
@@ -231,7 +232,7 @@ func (c *eosClient) Exec(ctx context.Context, in *NSRequest, opts ...grpc.CallOp
 	return out, nil
 }
 
-func (c *eosClient) TrafficShapingRate(ctx context.Context, in *TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error) {
+func (c *eosClient) TrafficShapingRate(ctx context.Context, in *trafficshaping.TrafficShapingRateRequest, opts ...grpc.CallOption) (Eos_TrafficShapingRateClient, error) {
 	stream, err := c.cc.NewStream(ctx, &Eos_ServiceDesc.Streams[3], Eos_TrafficShapingRate_FullMethodName, opts...)
 	if err != nil {
 		return nil, err
@@ -247,7 +248,7 @@ func (c *eosClient) TrafficShapingRate(ctx context.Context, in *TrafficShapingRa
 }
 
 type Eos_TrafficShapingRateClient interface {
-	Recv() (*TrafficShapingRateResponse, error)
+	Recv() (*trafficshaping.TrafficShapingRateResponse, error)
 	grpc.ClientStream
 }
 
@@ -255,8 +256,8 @@ type eosTrafficShapingRateClient struct {
 	grpc.ClientStream
 }
 
-func (x *eosTrafficShapingRateClient) Recv() (*TrafficShapingRateResponse, error) {
-	m := new(TrafficShapingRateResponse)
+func (x *eosTrafficShapingRateClient) Recv() (*trafficshaping.TrafficShapingRateResponse, error) {
+	m := new(trafficshaping.TrafficShapingRateResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -283,7 +284,7 @@ type EosServer interface {
 	FileInsert(context.Context, *FileInsertRequest) (*InsertReply, error)
 	// Replies to a NsRequest operation
 	Exec(context.Context, *NSRequest) (*NSResponse, error)
-	TrafficShapingRate(*TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error
+	TrafficShapingRate(*trafficshaping.TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error
 }
 
 // UnimplementedEosServer should be embedded to have forward compatible implementations.
@@ -317,7 +318,7 @@ func (UnimplementedEosServer) FileInsert(context.Context, *FileInsertRequest) (*
 func (UnimplementedEosServer) Exec(context.Context, *NSRequest) (*NSResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Exec not implemented")
 }
-func (UnimplementedEosServer) TrafficShapingRate(*TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error {
+func (UnimplementedEosServer) TrafficShapingRate(*trafficshaping.TrafficShapingRateRequest, Eos_TrafficShapingRateServer) error {
 	return status.Errorf(codes.Unimplemented, "method TrafficShapingRate not implemented")
 }
 
@@ -504,7 +505,7 @@ func _Eos_Exec_Handler(srv interface{}, ctx context.Context, dec func(interface{
 }
 
 func _Eos_TrafficShapingRate_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(TrafficShapingRateRequest)
+	m := new(trafficshaping.TrafficShapingRateRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
@@ -512,7 +513,7 @@ func _Eos_TrafficShapingRate_Handler(srv interface{}, stream grpc.ServerStream) 
 }
 
 type Eos_TrafficShapingRateServer interface {
-	Send(*TrafficShapingRateResponse) error
+	Send(*trafficshaping.TrafficShapingRateResponse) error
 	grpc.ServerStream
 }
 
@@ -520,7 +521,7 @@ type eosTrafficShapingRateServer struct {
 	grpc.ServerStream
 }
 
-func (x *eosTrafficShapingRateServer) Send(m *TrafficShapingRateResponse) error {
+func (x *eosTrafficShapingRateServer) Send(m *trafficshaping.TrafficShapingRateResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 

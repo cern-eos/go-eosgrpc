@@ -9,7 +9,7 @@
 // - protoc             (unknown)
 // source: TrafficShaping.proto
 
-package go_eosgrpc
+package trafficshaping
 
 import (
 	context "context"

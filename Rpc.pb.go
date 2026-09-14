@@ -26,6 +26,8 @@
 package go_eosgrpc
 
 import (
+	console "github.com/cern-eos/go-eosgrpc/console"
+	trafficshaping "github.com/cern-eos/go-eosgrpc/trafficshaping"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -2806,14 +2808,14 @@ func (x *NSRequest) GetShare() *NSRequest_ShareRequest {
 	return nil
 }
 
-func (x *NSRequest) GetRecycle() *RecycleProto {
+func (x *NSRequest) GetRecycle() *console.RecycleProto {
 	if x, ok := x.GetCommand().(*NSRequest_Recycle); ok {
 		return x.Recycle
 	}
 	return nil
 }
 
-func (x *NSRequest) GetFile() *FileProto {
+func (x *NSRequest) GetFile() *console.FileProto {
 	if x, ok := x.GetCommand().(*NSRequest_File); ok {
 		return x.File
 	}
@@ -2893,11 +2895,11 @@ type NSRequest_Share struct {
 }
 
 type NSRequest_Recycle struct {
-	Recycle *RecycleProto `protobuf:"bytes,37,opt,name=recycle,proto3,oneof"`
+	Recycle *console.RecycleProto `protobuf:"bytes,37,opt,name=recycle,proto3,oneof"`
 }
 
 type NSRequest_File struct {
-	File *FileProto `protobuf:"bytes,38,opt,name=file,proto3,oneof"`
+	File *console.FileProto `protobuf:"bytes,38,opt,name=file,proto3,oneof"`
 }
 
 func (*NSRequest_Mkdir) isNSRequest_Command() {}
@@ -6210,22 +6212,22 @@ var file_Rpc_proto_goTypes = []interface{}{
 	(*NSRequest_RecycleRequest_ListFlags)(nil),               // 60: eos.rpc.NSRequest.RecycleRequest.ListFlags
 	nil,                                    // 61: eos.rpc.NSRequest.SetXAttrRequest.XattrsEntry
 	(*NSRequest_ShareRequest_LsShare)(nil), // 62: eos.rpc.NSRequest.ShareRequest.LsShare
-	(*NSRequest_ShareRequest_OperateShare)(nil),    // 63: eos.rpc.NSRequest.ShareRequest.OperateShare
-	(*NSResponse_ErrorResponse)(nil),               // 64: eos.rpc.NSResponse.ErrorResponse
-	(*NSResponse_VersionResponse)(nil),             // 65: eos.rpc.NSResponse.VersionResponse
-	(*NSResponse_RecycleResponse)(nil),             // 66: eos.rpc.NSResponse.RecycleResponse
-	(*NSResponse_AclResponse)(nil),                 // 67: eos.rpc.NSResponse.AclResponse
-	(*NSResponse_QuotaResponse)(nil),               // 68: eos.rpc.NSResponse.QuotaResponse
-	(*NSResponse_ShareInfo)(nil),                   // 69: eos.rpc.NSResponse.ShareInfo
-	(*NSResponse_ShareAccess)(nil),                 // 70: eos.rpc.NSResponse.ShareAccess
-	(*NSResponse_ShareResponse)(nil),               // 71: eos.rpc.NSResponse.ShareResponse
-	(*NSResponse_FileResponse)(nil),                // 72: eos.rpc.NSResponse.FileResponse
-	(*NSResponse_VersionResponse_VersionInfo)(nil), // 73: eos.rpc.NSResponse.VersionResponse.VersionInfo
-	(*NSResponse_RecycleResponse_RecycleInfo)(nil), // 74: eos.rpc.NSResponse.RecycleResponse.RecycleInfo
-	(*RecycleProto)(nil),                           // 75: eos.console.RecycleProto
-	(*FileProto)(nil),                              // 76: eos.console.FileProto
-	(*TrafficShapingRateRequest)(nil),              // 77: eos.traffic_shaping.TrafficShapingRateRequest
-	(*TrafficShapingRateResponse)(nil),             // 78: eos.traffic_shaping.TrafficShapingRateResponse
+	(*NSRequest_ShareRequest_OperateShare)(nil),       // 63: eos.rpc.NSRequest.ShareRequest.OperateShare
+	(*NSResponse_ErrorResponse)(nil),                  // 64: eos.rpc.NSResponse.ErrorResponse
+	(*NSResponse_VersionResponse)(nil),                // 65: eos.rpc.NSResponse.VersionResponse
+	(*NSResponse_RecycleResponse)(nil),                // 66: eos.rpc.NSResponse.RecycleResponse
+	(*NSResponse_AclResponse)(nil),                    // 67: eos.rpc.NSResponse.AclResponse
+	(*NSResponse_QuotaResponse)(nil),                  // 68: eos.rpc.NSResponse.QuotaResponse
+	(*NSResponse_ShareInfo)(nil),                      // 69: eos.rpc.NSResponse.ShareInfo
+	(*NSResponse_ShareAccess)(nil),                    // 70: eos.rpc.NSResponse.ShareAccess
+	(*NSResponse_ShareResponse)(nil),                  // 71: eos.rpc.NSResponse.ShareResponse
+	(*NSResponse_FileResponse)(nil),                   // 72: eos.rpc.NSResponse.FileResponse
+	(*NSResponse_VersionResponse_VersionInfo)(nil),    // 73: eos.rpc.NSResponse.VersionResponse.VersionInfo
+	(*NSResponse_RecycleResponse_RecycleInfo)(nil),    // 74: eos.rpc.NSResponse.RecycleResponse.RecycleInfo
+	(*console.RecycleProto)(nil),                      // 75: eos.console.RecycleProto
+	(*console.FileProto)(nil),                         // 76: eos.console.FileProto
+	(*trafficshaping.TrafficShapingRateRequest)(nil),  // 77: eos.traffic_shaping.TrafficShapingRateRequest
+	(*trafficshaping.TrafficShapingRateResponse)(nil), // 78: eos.traffic_shaping.TrafficShapingRateResponse
 }
 var file_Rpc_proto_depIdxs = []int32{
 	22,  // 0: eos.rpc.ContainerInsertRequest.container:type_name -> eos.rpc.ContainerMdProto
@@ -6367,9 +6369,6 @@ func file_Rpc_proto_init() {
 	if File_Rpc_proto != nil {
 		return
 	}
-	file_File_proto_init()
-	file_Recycle_proto_init()
-	file_TrafficShaping_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_Rpc_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PingRequest); i {
