@@ -295,7 +295,7 @@ func (x NSRequest_VersionRequest_VERSION_CMD) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NSRequest_VersionRequest_VERSION_CMD.Descriptor instead.
 func (NSRequest_VersionRequest_VERSION_CMD) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 7, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 7, 0}
 }
 
 type NSRequest_RecycleRequest_DisplayType int32
@@ -344,7 +344,7 @@ func (x NSRequest_RecycleRequest_DisplayType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NSRequest_RecycleRequest_DisplayType.Descriptor instead.
 func (NSRequest_RecycleRequest_DisplayType) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8, 0}
 }
 
 type NSRequest_RecycleRequest_RECYCLE_CMD int32
@@ -393,7 +393,7 @@ func (x NSRequest_RecycleRequest_RECYCLE_CMD) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NSRequest_RecycleRequest_RECYCLE_CMD.Descriptor instead.
 func (NSRequest_RecycleRequest_RECYCLE_CMD) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8, 1}
 }
 
 type NSRequest_AclRequest_ACL_COMMAND int32
@@ -442,7 +442,7 @@ func (x NSRequest_AclRequest_ACL_COMMAND) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NSRequest_AclRequest_ACL_COMMAND.Descriptor instead.
 func (NSRequest_AclRequest_ACL_COMMAND) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 12, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 12, 0}
 }
 
 type NSRequest_AclRequest_ACL_TYPE int32
@@ -488,7 +488,7 @@ func (x NSRequest_AclRequest_ACL_TYPE) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NSRequest_AclRequest_ACL_TYPE.Descriptor instead.
 func (NSRequest_AclRequest_ACL_TYPE) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 12, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 12, 1}
 }
 
 type NSRequest_ShareRequest_LsShare_OutFormat int32
@@ -540,7 +540,7 @@ func (x NSRequest_ShareRequest_LsShare_OutFormat) Number() protoreflect.EnumNumb
 
 // Deprecated: Use NSRequest_ShareRequest_LsShare_OutFormat.Descriptor instead.
 func (NSRequest_ShareRequest_LsShare_OutFormat) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 15, 0, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 15, 0, 0}
 }
 
 type NSRequest_ShareRequest_OperateShare_Op int32
@@ -598,7 +598,7 @@ func (x NSRequest_ShareRequest_OperateShare_Op) Number() protoreflect.EnumNumber
 
 // Deprecated: Use NSRequest_ShareRequest_OperateShare_Op.Descriptor instead.
 func (NSRequest_ShareRequest_OperateShare_Op) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 15, 1, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 15, 1, 0}
 }
 
 type NSResponse_RecycleResponse_RecycleInfo_DELETIONTYPE int32
@@ -644,7 +644,7 @@ func (x NSResponse_RecycleResponse_RecycleInfo_DELETIONTYPE) Number() protorefle
 
 // Deprecated: Use NSResponse_RecycleResponse_RecycleInfo_DELETIONTYPE.Descriptor instead.
 func (NSResponse_RecycleResponse_RecycleInfo_DELETIONTYPE) EnumDescriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 2, 0, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 2, 0, 0}
 }
 
 type PingRequest struct {
@@ -749,6 +749,118 @@ func (x *PingReply) GetMessage() []byte {
 	return nil
 }
 
+type McpRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Authkey string `protobuf:"bytes,1,opt,name=authkey,proto3" json:"authkey,omitempty"`
+	// Raw MCP JSON-RPC request document.
+	Body string `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
+}
+
+func (x *McpRequest) Reset() {
+	*x = McpRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_Rpc_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *McpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*McpRequest) ProtoMessage() {}
+
+func (x *McpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_Rpc_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use McpRequest.ProtoReflect.Descriptor instead.
+func (*McpRequest) Descriptor() ([]byte, []int) {
+	return file_Rpc_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *McpRequest) GetAuthkey() string {
+	if x != nil {
+		return x.Authkey
+	}
+	return ""
+}
+
+func (x *McpRequest) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+type McpReply struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Raw MCP JSON-RPC response document. Empty when notification is true.
+	Body         string `protobuf:"bytes,1,opt,name=body,proto3" json:"body,omitempty"`
+	Notification bool   `protobuf:"varint,2,opt,name=notification,proto3" json:"notification,omitempty"`
+}
+
+func (x *McpReply) Reset() {
+	*x = McpReply{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_Rpc_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *McpReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*McpReply) ProtoMessage() {}
+
+func (x *McpReply) ProtoReflect() protoreflect.Message {
+	mi := &file_Rpc_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use McpReply.ProtoReflect.Descriptor instead.
+func (*McpReply) Descriptor() ([]byte, []int) {
+	return file_Rpc_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *McpReply) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+func (x *McpReply) GetNotification() bool {
+	if x != nil {
+		return x.Notification
+	}
+	return false
+}
+
 type NotificationRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -760,7 +872,7 @@ type NotificationRequest struct {
 func (x *NotificationRequest) Reset() {
 	*x = NotificationRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[2]
+		mi := &file_Rpc_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -773,7 +885,7 @@ func (x *NotificationRequest) String() string {
 func (*NotificationRequest) ProtoMessage() {}
 
 func (x *NotificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[2]
+	mi := &file_Rpc_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -786,7 +898,7 @@ func (x *NotificationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotificationRequest.ProtoReflect.Descriptor instead.
 func (*NotificationRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{2}
+	return file_Rpc_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *NotificationRequest) GetMessage() []byte {
@@ -807,7 +919,7 @@ type NotificationResponse struct {
 func (x *NotificationResponse) Reset() {
 	*x = NotificationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[3]
+		mi := &file_Rpc_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -820,7 +932,7 @@ func (x *NotificationResponse) String() string {
 func (*NotificationResponse) ProtoMessage() {}
 
 func (x *NotificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[3]
+	mi := &file_Rpc_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -833,7 +945,7 @@ func (x *NotificationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotificationResponse.ProtoReflect.Descriptor instead.
 func (*NotificationResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{3}
+	return file_Rpc_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *NotificationResponse) GetSuccess() bool {
@@ -856,7 +968,7 @@ type ContainerInsertRequest struct {
 func (x *ContainerInsertRequest) Reset() {
 	*x = ContainerInsertRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[4]
+		mi := &file_Rpc_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -869,7 +981,7 @@ func (x *ContainerInsertRequest) String() string {
 func (*ContainerInsertRequest) ProtoMessage() {}
 
 func (x *ContainerInsertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[4]
+	mi := &file_Rpc_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -882,7 +994,7 @@ func (x *ContainerInsertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContainerInsertRequest.ProtoReflect.Descriptor instead.
 func (*ContainerInsertRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{4}
+	return file_Rpc_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ContainerInsertRequest) GetContainer() []*ContainerMdProto {
@@ -918,7 +1030,7 @@ type FileInsertRequest struct {
 func (x *FileInsertRequest) Reset() {
 	*x = FileInsertRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[5]
+		mi := &file_Rpc_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -931,7 +1043,7 @@ func (x *FileInsertRequest) String() string {
 func (*FileInsertRequest) ProtoMessage() {}
 
 func (x *FileInsertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[5]
+	mi := &file_Rpc_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -944,7 +1056,7 @@ func (x *FileInsertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileInsertRequest.ProtoReflect.Descriptor instead.
 func (*FileInsertRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{5}
+	return file_Rpc_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *FileInsertRequest) GetFiles() []*FileMdProto {
@@ -973,7 +1085,7 @@ type InsertReply struct {
 func (x *InsertReply) Reset() {
 	*x = InsertReply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[6]
+		mi := &file_Rpc_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -986,7 +1098,7 @@ func (x *InsertReply) String() string {
 func (*InsertReply) ProtoMessage() {}
 
 func (x *InsertReply) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[6]
+	mi := &file_Rpc_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -999,7 +1111,7 @@ func (x *InsertReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InsertReply.ProtoReflect.Descriptor instead.
 func (*InsertReply) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{6}
+	return file_Rpc_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *InsertReply) GetMessage() []string {
@@ -1028,7 +1140,7 @@ type Time struct {
 func (x *Time) Reset() {
 	*x = Time{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[7]
+		mi := &file_Rpc_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1041,7 +1153,7 @@ func (x *Time) String() string {
 func (*Time) ProtoMessage() {}
 
 func (x *Time) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[7]
+	mi := &file_Rpc_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1054,7 +1166,7 @@ func (x *Time) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Time.ProtoReflect.Descriptor instead.
 func (*Time) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{7}
+	return file_Rpc_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Time) GetSec() uint64 {
@@ -1083,7 +1195,7 @@ type Checksum struct {
 func (x *Checksum) Reset() {
 	*x = Checksum{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[8]
+		mi := &file_Rpc_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1096,7 +1208,7 @@ func (x *Checksum) String() string {
 func (*Checksum) ProtoMessage() {}
 
 func (x *Checksum) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[8]
+	mi := &file_Rpc_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1109,7 +1221,7 @@ func (x *Checksum) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Checksum.ProtoReflect.Descriptor instead.
 func (*Checksum) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{8}
+	return file_Rpc_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Checksum) GetValue() []byte {
@@ -1156,7 +1268,7 @@ type FileMdProto struct {
 func (x *FileMdProto) Reset() {
 	*x = FileMdProto{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[9]
+		mi := &file_Rpc_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1169,7 +1281,7 @@ func (x *FileMdProto) String() string {
 func (*FileMdProto) ProtoMessage() {}
 
 func (x *FileMdProto) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[9]
+	mi := &file_Rpc_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1182,7 +1294,7 @@ func (x *FileMdProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileMdProto.ProtoReflect.Descriptor instead.
 func (*FileMdProto) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{9}
+	return file_Rpc_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *FileMdProto) GetId() uint64 {
@@ -1346,7 +1458,7 @@ type ContainerMdProto struct {
 func (x *ContainerMdProto) Reset() {
 	*x = ContainerMdProto{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[10]
+		mi := &file_Rpc_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1359,7 +1471,7 @@ func (x *ContainerMdProto) String() string {
 func (*ContainerMdProto) ProtoMessage() {}
 
 func (x *ContainerMdProto) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[10]
+	mi := &file_Rpc_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1372,7 +1484,7 @@ func (x *ContainerMdProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContainerMdProto.ProtoReflect.Descriptor instead.
 func (*ContainerMdProto) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{10}
+	return file_Rpc_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ContainerMdProto) GetId() uint64 {
@@ -1517,7 +1629,7 @@ type QuotaProto struct {
 func (x *QuotaProto) Reset() {
 	*x = QuotaProto{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[11]
+		mi := &file_Rpc_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1530,7 +1642,7 @@ func (x *QuotaProto) String() string {
 func (*QuotaProto) ProtoMessage() {}
 
 func (x *QuotaProto) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[11]
+	mi := &file_Rpc_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1543,7 +1655,7 @@ func (x *QuotaProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuotaProto.ProtoReflect.Descriptor instead.
 func (*QuotaProto) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{11}
+	return file_Rpc_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *QuotaProto) GetPath() []byte {
@@ -1654,7 +1766,7 @@ type RoleId struct {
 func (x *RoleId) Reset() {
 	*x = RoleId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[12]
+		mi := &file_Rpc_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1667,7 +1779,7 @@ func (x *RoleId) String() string {
 func (*RoleId) ProtoMessage() {}
 
 func (x *RoleId) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[12]
+	mi := &file_Rpc_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1680,7 +1792,7 @@ func (x *RoleId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoleId.ProtoReflect.Descriptor instead.
 func (*RoleId) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{12}
+	return file_Rpc_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *RoleId) GetUid() uint64 {
@@ -1746,7 +1858,7 @@ type MDId struct {
 func (x *MDId) Reset() {
 	*x = MDId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[13]
+		mi := &file_Rpc_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1759,7 +1871,7 @@ func (x *MDId) String() string {
 func (*MDId) ProtoMessage() {}
 
 func (x *MDId) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[13]
+	mi := &file_Rpc_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1772,7 +1884,7 @@ func (x *MDId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MDId.ProtoReflect.Descriptor instead.
 func (*MDId) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{13}
+	return file_Rpc_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *MDId) GetPath() []byte {
@@ -1816,7 +1928,7 @@ type Limit struct {
 func (x *Limit) Reset() {
 	*x = Limit{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[14]
+		mi := &file_Rpc_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1829,7 +1941,7 @@ func (x *Limit) String() string {
 func (*Limit) ProtoMessage() {}
 
 func (x *Limit) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[14]
+	mi := &file_Rpc_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1842,7 +1954,7 @@ func (x *Limit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Limit.ProtoReflect.Descriptor instead.
 func (*Limit) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{14}
+	return file_Rpc_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *Limit) GetZero() bool {
@@ -1896,7 +2008,7 @@ type MDSelection struct {
 func (x *MDSelection) Reset() {
 	*x = MDSelection{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[15]
+		mi := &file_Rpc_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1909,7 +2021,7 @@ func (x *MDSelection) String() string {
 func (*MDSelection) ProtoMessage() {}
 
 func (x *MDSelection) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[15]
+	mi := &file_Rpc_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1922,7 +2034,7 @@ func (x *MDSelection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MDSelection.ProtoReflect.Descriptor instead.
 func (*MDSelection) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{15}
+	return file_Rpc_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *MDSelection) GetSelect() bool {
@@ -2080,7 +2192,7 @@ type MDRequest struct {
 func (x *MDRequest) Reset() {
 	*x = MDRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[16]
+		mi := &file_Rpc_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2093,7 +2205,7 @@ func (x *MDRequest) String() string {
 func (*MDRequest) ProtoMessage() {}
 
 func (x *MDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[16]
+	mi := &file_Rpc_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2106,7 +2218,7 @@ func (x *MDRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MDRequest.ProtoReflect.Descriptor instead.
 func (*MDRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{16}
+	return file_Rpc_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *MDRequest) GetType() TYPE {
@@ -2157,7 +2269,7 @@ type MDResponse struct {
 func (x *MDResponse) Reset() {
 	*x = MDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[17]
+		mi := &file_Rpc_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2170,7 +2282,7 @@ func (x *MDResponse) String() string {
 func (*MDResponse) ProtoMessage() {}
 
 func (x *MDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[17]
+	mi := &file_Rpc_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2183,7 +2295,7 @@ func (x *MDResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MDResponse.ProtoReflect.Descriptor instead.
 func (*MDResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{17}
+	return file_Rpc_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *MDResponse) GetType() TYPE {
@@ -2221,7 +2333,7 @@ type MDNotification struct {
 func (x *MDNotification) Reset() {
 	*x = MDNotification{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[18]
+		mi := &file_Rpc_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2234,7 +2346,7 @@ func (x *MDNotification) String() string {
 func (*MDNotification) ProtoMessage() {}
 
 func (x *MDNotification) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[18]
+	mi := &file_Rpc_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2247,7 +2359,7 @@ func (x *MDNotification) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MDNotification.ProtoReflect.Descriptor instead.
 func (*MDNotification) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{18}
+	return file_Rpc_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *MDNotification) GetType() TYPE {
@@ -2294,7 +2406,7 @@ type FindRequest struct {
 func (x *FindRequest) Reset() {
 	*x = FindRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[19]
+		mi := &file_Rpc_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2307,7 +2419,7 @@ func (x *FindRequest) String() string {
 func (*FindRequest) ProtoMessage() {}
 
 func (x *FindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[19]
+	mi := &file_Rpc_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2320,7 +2432,7 @@ func (x *FindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FindRequest.ProtoReflect.Descriptor instead.
 func (*FindRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{19}
+	return file_Rpc_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *FindRequest) GetType() TYPE {
@@ -2378,7 +2490,7 @@ type ShareAuth struct {
 func (x *ShareAuth) Reset() {
 	*x = ShareAuth{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[20]
+		mi := &file_Rpc_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2391,7 +2503,7 @@ func (x *ShareAuth) String() string {
 func (*ShareAuth) ProtoMessage() {}
 
 func (x *ShareAuth) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[20]
+	mi := &file_Rpc_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2404,7 +2516,7 @@ func (x *ShareAuth) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShareAuth.ProtoReflect.Descriptor instead.
 func (*ShareAuth) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{20}
+	return file_Rpc_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ShareAuth) GetProt() string {
@@ -2447,7 +2559,7 @@ type ShareProto struct {
 func (x *ShareProto) Reset() {
 	*x = ShareProto{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[21]
+		mi := &file_Rpc_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2460,7 +2572,7 @@ func (x *ShareProto) String() string {
 func (*ShareProto) ProtoMessage() {}
 
 func (x *ShareProto) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[21]
+	mi := &file_Rpc_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2473,7 +2585,7 @@ func (x *ShareProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShareProto.ProtoReflect.Descriptor instead.
 func (*ShareProto) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{21}
+	return file_Rpc_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *ShareProto) GetPermission() string {
@@ -2553,7 +2665,7 @@ type ShareToken struct {
 func (x *ShareToken) Reset() {
 	*x = ShareToken{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[22]
+		mi := &file_Rpc_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2566,7 +2678,7 @@ func (x *ShareToken) String() string {
 func (*ShareToken) ProtoMessage() {}
 
 func (x *ShareToken) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[22]
+	mi := &file_Rpc_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2579,7 +2691,7 @@ func (x *ShareToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShareToken.ProtoReflect.Descriptor instead.
 func (*ShareToken) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{22}
+	return file_Rpc_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ShareToken) GetToken() *ShareProto {
@@ -2645,7 +2757,7 @@ type NSRequest struct {
 func (x *NSRequest) Reset() {
 	*x = NSRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[23]
+		mi := &file_Rpc_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2658,7 +2770,7 @@ func (x *NSRequest) String() string {
 func (*NSRequest) ProtoMessage() {}
 
 func (x *NSRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[23]
+	mi := &file_Rpc_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2671,7 +2783,7 @@ func (x *NSRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23}
+	return file_Rpc_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *NSRequest) GetAuthkey() string {
@@ -2955,7 +3067,7 @@ type NSResponse struct {
 func (x *NSResponse) Reset() {
 	*x = NSResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[24]
+		mi := &file_Rpc_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2968,7 +3080,7 @@ func (x *NSResponse) String() string {
 func (*NSResponse) ProtoMessage() {}
 
 func (x *NSResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[24]
+	mi := &file_Rpc_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2981,7 +3093,7 @@ func (x *NSResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24}
+	return file_Rpc_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *NSResponse) GetError() *NSResponse_ErrorResponse {
@@ -3044,7 +3156,7 @@ type NsStatRequest struct {
 func (x *NsStatRequest) Reset() {
 	*x = NsStatRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[25]
+		mi := &file_Rpc_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3057,7 +3169,7 @@ func (x *NsStatRequest) String() string {
 func (*NsStatRequest) ProtoMessage() {}
 
 func (x *NsStatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[25]
+	mi := &file_Rpc_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3070,7 +3182,7 @@ func (x *NsStatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NsStatRequest.ProtoReflect.Descriptor instead.
 func (*NsStatRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{25}
+	return file_Rpc_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *NsStatRequest) GetAuthkey() string {
@@ -3105,7 +3217,7 @@ type NsStatResponse struct {
 func (x *NsStatResponse) Reset() {
 	*x = NsStatResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[26]
+		mi := &file_Rpc_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3118,7 +3230,7 @@ func (x *NsStatResponse) String() string {
 func (*NsStatResponse) ProtoMessage() {}
 
 func (x *NsStatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[26]
+	mi := &file_Rpc_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3131,7 +3243,7 @@ func (x *NsStatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NsStatResponse.ProtoReflect.Descriptor instead.
 func (*NsStatResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{26}
+	return file_Rpc_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *NsStatResponse) GetCode() int64 {
@@ -3252,7 +3364,7 @@ type NSRequest_MkdirRequest struct {
 func (x *NSRequest_MkdirRequest) Reset() {
 	*x = NSRequest_MkdirRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[30]
+		mi := &file_Rpc_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3265,7 +3377,7 @@ func (x *NSRequest_MkdirRequest) String() string {
 func (*NSRequest_MkdirRequest) ProtoMessage() {}
 
 func (x *NSRequest_MkdirRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[30]
+	mi := &file_Rpc_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3278,7 +3390,7 @@ func (x *NSRequest_MkdirRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_MkdirRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_MkdirRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 0}
 }
 
 func (x *NSRequest_MkdirRequest) GetId() *MDId {
@@ -3313,7 +3425,7 @@ type NSRequest_RmdirRequest struct {
 func (x *NSRequest_RmdirRequest) Reset() {
 	*x = NSRequest_RmdirRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[31]
+		mi := &file_Rpc_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3326,7 +3438,7 @@ func (x *NSRequest_RmdirRequest) String() string {
 func (*NSRequest_RmdirRequest) ProtoMessage() {}
 
 func (x *NSRequest_RmdirRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[31]
+	mi := &file_Rpc_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3339,7 +3451,7 @@ func (x *NSRequest_RmdirRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_RmdirRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_RmdirRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 1}
 }
 
 func (x *NSRequest_RmdirRequest) GetId() *MDId {
@@ -3360,7 +3472,7 @@ type NSRequest_TouchRequest struct {
 func (x *NSRequest_TouchRequest) Reset() {
 	*x = NSRequest_TouchRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[32]
+		mi := &file_Rpc_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3373,7 +3485,7 @@ func (x *NSRequest_TouchRequest) String() string {
 func (*NSRequest_TouchRequest) ProtoMessage() {}
 
 func (x *NSRequest_TouchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[32]
+	mi := &file_Rpc_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3386,7 +3498,7 @@ func (x *NSRequest_TouchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_TouchRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_TouchRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 2}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 2}
 }
 
 func (x *NSRequest_TouchRequest) GetId() *MDId {
@@ -3408,7 +3520,7 @@ type NSRequest_UnlinkRequest struct {
 func (x *NSRequest_UnlinkRequest) Reset() {
 	*x = NSRequest_UnlinkRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[33]
+		mi := &file_Rpc_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3421,7 +3533,7 @@ func (x *NSRequest_UnlinkRequest) String() string {
 func (*NSRequest_UnlinkRequest) ProtoMessage() {}
 
 func (x *NSRequest_UnlinkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[33]
+	mi := &file_Rpc_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3434,7 +3546,7 @@ func (x *NSRequest_UnlinkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_UnlinkRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_UnlinkRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 3}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 3}
 }
 
 func (x *NSRequest_UnlinkRequest) GetId() *MDId {
@@ -3465,7 +3577,7 @@ type NSRequest_RmRequest struct {
 func (x *NSRequest_RmRequest) Reset() {
 	*x = NSRequest_RmRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[34]
+		mi := &file_Rpc_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3478,7 +3590,7 @@ func (x *NSRequest_RmRequest) String() string {
 func (*NSRequest_RmRequest) ProtoMessage() {}
 
 func (x *NSRequest_RmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[34]
+	mi := &file_Rpc_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3491,7 +3603,7 @@ func (x *NSRequest_RmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_RmRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_RmRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 4}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 4}
 }
 
 func (x *NSRequest_RmRequest) GetId() *MDId {
@@ -3534,7 +3646,7 @@ type NSRequest_RenameRequest struct {
 func (x *NSRequest_RenameRequest) Reset() {
 	*x = NSRequest_RenameRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[35]
+		mi := &file_Rpc_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3547,7 +3659,7 @@ func (x *NSRequest_RenameRequest) String() string {
 func (*NSRequest_RenameRequest) ProtoMessage() {}
 
 func (x *NSRequest_RenameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[35]
+	mi := &file_Rpc_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3560,7 +3672,7 @@ func (x *NSRequest_RenameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_RenameRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_RenameRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 5}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 5}
 }
 
 func (x *NSRequest_RenameRequest) GetId() *MDId {
@@ -3589,7 +3701,7 @@ type NSRequest_SymlinkRequest struct {
 func (x *NSRequest_SymlinkRequest) Reset() {
 	*x = NSRequest_SymlinkRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[36]
+		mi := &file_Rpc_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3602,7 +3714,7 @@ func (x *NSRequest_SymlinkRequest) String() string {
 func (*NSRequest_SymlinkRequest) ProtoMessage() {}
 
 func (x *NSRequest_SymlinkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[36]
+	mi := &file_Rpc_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3615,7 +3727,7 @@ func (x *NSRequest_SymlinkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_SymlinkRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_SymlinkRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 6}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 6}
 }
 
 func (x *NSRequest_SymlinkRequest) GetId() *MDId {
@@ -3646,7 +3758,7 @@ type NSRequest_VersionRequest struct {
 func (x *NSRequest_VersionRequest) Reset() {
 	*x = NSRequest_VersionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[37]
+		mi := &file_Rpc_proto_msgTypes[39]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3659,7 +3771,7 @@ func (x *NSRequest_VersionRequest) String() string {
 func (*NSRequest_VersionRequest) ProtoMessage() {}
 
 func (x *NSRequest_VersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[37]
+	mi := &file_Rpc_proto_msgTypes[39]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3672,7 +3784,7 @@ func (x *NSRequest_VersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_VersionRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_VersionRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 7}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 7}
 }
 
 func (x *NSRequest_VersionRequest) GetId() *MDId {
@@ -3719,7 +3831,7 @@ type NSRequest_RecycleRequest struct {
 func (x *NSRequest_RecycleRequest) Reset() {
 	*x = NSRequest_RecycleRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[38]
+		mi := &file_Rpc_proto_msgTypes[40]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3732,7 +3844,7 @@ func (x *NSRequest_RecycleRequest) String() string {
 func (*NSRequest_RecycleRequest) ProtoMessage() {}
 
 func (x *NSRequest_RecycleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[38]
+	mi := &file_Rpc_proto_msgTypes[40]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3745,7 +3857,7 @@ func (x *NSRequest_RecycleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_RecycleRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_RecycleRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8}
 }
 
 func (x *NSRequest_RecycleRequest) GetKey() string {
@@ -3805,7 +3917,7 @@ type NSRequest_SetXAttrRequest struct {
 func (x *NSRequest_SetXAttrRequest) Reset() {
 	*x = NSRequest_SetXAttrRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[39]
+		mi := &file_Rpc_proto_msgTypes[41]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3818,7 +3930,7 @@ func (x *NSRequest_SetXAttrRequest) String() string {
 func (*NSRequest_SetXAttrRequest) ProtoMessage() {}
 
 func (x *NSRequest_SetXAttrRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[39]
+	mi := &file_Rpc_proto_msgTypes[41]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3831,7 +3943,7 @@ func (x *NSRequest_SetXAttrRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_SetXAttrRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_SetXAttrRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 9}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 9}
 }
 
 func (x *NSRequest_SetXAttrRequest) GetId() *MDId {
@@ -3881,7 +3993,7 @@ type NSRequest_ChownRequest struct {
 func (x *NSRequest_ChownRequest) Reset() {
 	*x = NSRequest_ChownRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[40]
+		mi := &file_Rpc_proto_msgTypes[42]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3894,7 +4006,7 @@ func (x *NSRequest_ChownRequest) String() string {
 func (*NSRequest_ChownRequest) ProtoMessage() {}
 
 func (x *NSRequest_ChownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[40]
+	mi := &file_Rpc_proto_msgTypes[42]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3907,7 +4019,7 @@ func (x *NSRequest_ChownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_ChownRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_ChownRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 10}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 10}
 }
 
 func (x *NSRequest_ChownRequest) GetId() *MDId {
@@ -3936,7 +4048,7 @@ type NSRequest_ChmodRequest struct {
 func (x *NSRequest_ChmodRequest) Reset() {
 	*x = NSRequest_ChmodRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[41]
+		mi := &file_Rpc_proto_msgTypes[43]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3949,7 +4061,7 @@ func (x *NSRequest_ChmodRequest) String() string {
 func (*NSRequest_ChmodRequest) ProtoMessage() {}
 
 func (x *NSRequest_ChmodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[41]
+	mi := &file_Rpc_proto_msgTypes[43]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3962,7 +4074,7 @@ func (x *NSRequest_ChmodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_ChmodRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_ChmodRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 11}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 11}
 }
 
 func (x *NSRequest_ChmodRequest) GetId() *MDId {
@@ -3996,7 +4108,7 @@ type NSRequest_AclRequest struct {
 func (x *NSRequest_AclRequest) Reset() {
 	*x = NSRequest_AclRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[42]
+		mi := &file_Rpc_proto_msgTypes[44]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4009,7 +4121,7 @@ func (x *NSRequest_AclRequest) String() string {
 func (*NSRequest_AclRequest) ProtoMessage() {}
 
 func (x *NSRequest_AclRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[42]
+	mi := &file_Rpc_proto_msgTypes[44]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4022,7 +4134,7 @@ func (x *NSRequest_AclRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_AclRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_AclRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 12}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 12}
 }
 
 func (x *NSRequest_AclRequest) GetId() *MDId {
@@ -4085,7 +4197,7 @@ type NSRequest_TokenRequest struct {
 func (x *NSRequest_TokenRequest) Reset() {
 	*x = NSRequest_TokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[43]
+		mi := &file_Rpc_proto_msgTypes[45]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4098,7 +4210,7 @@ func (x *NSRequest_TokenRequest) String() string {
 func (*NSRequest_TokenRequest) ProtoMessage() {}
 
 func (x *NSRequest_TokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[43]
+	mi := &file_Rpc_proto_msgTypes[45]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4111,7 +4223,7 @@ func (x *NSRequest_TokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_TokenRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_TokenRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 13}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 13}
 }
 
 func (x *NSRequest_TokenRequest) GetToken() *ShareToken {
@@ -4137,7 +4249,7 @@ type NSRequest_QuotaRequest struct {
 func (x *NSRequest_QuotaRequest) Reset() {
 	*x = NSRequest_QuotaRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[44]
+		mi := &file_Rpc_proto_msgTypes[46]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4150,7 +4262,7 @@ func (x *NSRequest_QuotaRequest) String() string {
 func (*NSRequest_QuotaRequest) ProtoMessage() {}
 
 func (x *NSRequest_QuotaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[44]
+	mi := &file_Rpc_proto_msgTypes[46]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4163,7 +4275,7 @@ func (x *NSRequest_QuotaRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_QuotaRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_QuotaRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 14}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 14}
 }
 
 func (x *NSRequest_QuotaRequest) GetPath() []byte {
@@ -4223,7 +4335,7 @@ type NSRequest_ShareRequest struct {
 func (x *NSRequest_ShareRequest) Reset() {
 	*x = NSRequest_ShareRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[45]
+		mi := &file_Rpc_proto_msgTypes[47]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4236,7 +4348,7 @@ func (x *NSRequest_ShareRequest) String() string {
 func (*NSRequest_ShareRequest) ProtoMessage() {}
 
 func (x *NSRequest_ShareRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[45]
+	mi := &file_Rpc_proto_msgTypes[47]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4249,7 +4361,7 @@ func (x *NSRequest_ShareRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_ShareRequest.ProtoReflect.Descriptor instead.
 func (*NSRequest_ShareRequest) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 15}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 15}
 }
 
 func (m *NSRequest_ShareRequest) GetSubcmd() isNSRequest_ShareRequest_Subcmd {
@@ -4302,7 +4414,7 @@ type NSRequest_RecycleRequest_RestoreFlags struct {
 func (x *NSRequest_RecycleRequest_RestoreFlags) Reset() {
 	*x = NSRequest_RecycleRequest_RestoreFlags{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[46]
+		mi := &file_Rpc_proto_msgTypes[48]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4315,7 +4427,7 @@ func (x *NSRequest_RecycleRequest_RestoreFlags) String() string {
 func (*NSRequest_RecycleRequest_RestoreFlags) ProtoMessage() {}
 
 func (x *NSRequest_RecycleRequest_RestoreFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[46]
+	mi := &file_Rpc_proto_msgTypes[48]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4328,7 +4440,7 @@ func (x *NSRequest_RecycleRequest_RestoreFlags) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use NSRequest_RecycleRequest_RestoreFlags.ProtoReflect.Descriptor instead.
 func (*NSRequest_RecycleRequest_RestoreFlags) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8, 0}
 }
 
 func (x *NSRequest_RecycleRequest_RestoreFlags) GetForce() bool {
@@ -4365,7 +4477,7 @@ type NSRequest_RecycleRequest_PurgeDate struct {
 func (x *NSRequest_RecycleRequest_PurgeDate) Reset() {
 	*x = NSRequest_RecycleRequest_PurgeDate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[47]
+		mi := &file_Rpc_proto_msgTypes[49]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4378,7 +4490,7 @@ func (x *NSRequest_RecycleRequest_PurgeDate) String() string {
 func (*NSRequest_RecycleRequest_PurgeDate) ProtoMessage() {}
 
 func (x *NSRequest_RecycleRequest_PurgeDate) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[47]
+	mi := &file_Rpc_proto_msgTypes[49]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4391,7 +4503,7 @@ func (x *NSRequest_RecycleRequest_PurgeDate) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NSRequest_RecycleRequest_PurgeDate.ProtoReflect.Descriptor instead.
 func (*NSRequest_RecycleRequest_PurgeDate) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8, 1}
 }
 
 func (x *NSRequest_RecycleRequest_PurgeDate) GetYear() int32 {
@@ -4432,7 +4544,7 @@ type NSRequest_RecycleRequest_ListFlags struct {
 func (x *NSRequest_RecycleRequest_ListFlags) Reset() {
 	*x = NSRequest_RecycleRequest_ListFlags{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[48]
+		mi := &file_Rpc_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4445,7 +4557,7 @@ func (x *NSRequest_RecycleRequest_ListFlags) String() string {
 func (*NSRequest_RecycleRequest_ListFlags) ProtoMessage() {}
 
 func (x *NSRequest_RecycleRequest_ListFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[48]
+	mi := &file_Rpc_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4458,7 +4570,7 @@ func (x *NSRequest_RecycleRequest_ListFlags) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NSRequest_RecycleRequest_ListFlags.ProtoReflect.Descriptor instead.
 func (*NSRequest_RecycleRequest_ListFlags) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 8, 2}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 8, 2}
 }
 
 func (x *NSRequest_RecycleRequest_ListFlags) GetMaxentries() int32 {
@@ -4522,7 +4634,7 @@ type NSRequest_ShareRequest_LsShare struct {
 func (x *NSRequest_ShareRequest_LsShare) Reset() {
 	*x = NSRequest_ShareRequest_LsShare{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[50]
+		mi := &file_Rpc_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4535,7 +4647,7 @@ func (x *NSRequest_ShareRequest_LsShare) String() string {
 func (*NSRequest_ShareRequest_LsShare) ProtoMessage() {}
 
 func (x *NSRequest_ShareRequest_LsShare) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[50]
+	mi := &file_Rpc_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4548,7 +4660,7 @@ func (x *NSRequest_ShareRequest_LsShare) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSRequest_ShareRequest_LsShare.ProtoReflect.Descriptor instead.
 func (*NSRequest_ShareRequest_LsShare) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 15, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 15, 0}
 }
 
 func (x *NSRequest_ShareRequest_LsShare) GetOutformat() NSRequest_ShareRequest_LsShare_OutFormat {
@@ -4581,7 +4693,7 @@ type NSRequest_ShareRequest_OperateShare struct {
 func (x *NSRequest_ShareRequest_OperateShare) Reset() {
 	*x = NSRequest_ShareRequest_OperateShare{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[51]
+		mi := &file_Rpc_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4594,7 +4706,7 @@ func (x *NSRequest_ShareRequest_OperateShare) String() string {
 func (*NSRequest_ShareRequest_OperateShare) ProtoMessage() {}
 
 func (x *NSRequest_ShareRequest_OperateShare) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[51]
+	mi := &file_Rpc_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4607,7 +4719,7 @@ func (x *NSRequest_ShareRequest_OperateShare) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use NSRequest_ShareRequest_OperateShare.ProtoReflect.Descriptor instead.
 func (*NSRequest_ShareRequest_OperateShare) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{23, 15, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{25, 15, 1}
 }
 
 func (x *NSRequest_ShareRequest_OperateShare) GetOp() NSRequest_ShareRequest_OperateShare_Op {
@@ -4664,7 +4776,7 @@ type NSResponse_ErrorResponse struct {
 func (x *NSResponse_ErrorResponse) Reset() {
 	*x = NSResponse_ErrorResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[52]
+		mi := &file_Rpc_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4677,7 +4789,7 @@ func (x *NSResponse_ErrorResponse) String() string {
 func (*NSResponse_ErrorResponse) ProtoMessage() {}
 
 func (x *NSResponse_ErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[52]
+	mi := &file_Rpc_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4690,7 +4802,7 @@ func (x *NSResponse_ErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_ErrorResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_ErrorResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 0}
 }
 
 func (x *NSResponse_ErrorResponse) GetCode() int64 {
@@ -4720,7 +4832,7 @@ type NSResponse_VersionResponse struct {
 func (x *NSResponse_VersionResponse) Reset() {
 	*x = NSResponse_VersionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[53]
+		mi := &file_Rpc_proto_msgTypes[55]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4733,7 +4845,7 @@ func (x *NSResponse_VersionResponse) String() string {
 func (*NSResponse_VersionResponse) ProtoMessage() {}
 
 func (x *NSResponse_VersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[53]
+	mi := &file_Rpc_proto_msgTypes[55]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4746,7 +4858,7 @@ func (x *NSResponse_VersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_VersionResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_VersionResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 1}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 1}
 }
 
 func (x *NSResponse_VersionResponse) GetCode() int64 {
@@ -4783,7 +4895,7 @@ type NSResponse_RecycleResponse struct {
 func (x *NSResponse_RecycleResponse) Reset() {
 	*x = NSResponse_RecycleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[54]
+		mi := &file_Rpc_proto_msgTypes[56]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4796,7 +4908,7 @@ func (x *NSResponse_RecycleResponse) String() string {
 func (*NSResponse_RecycleResponse) ProtoMessage() {}
 
 func (x *NSResponse_RecycleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[54]
+	mi := &file_Rpc_proto_msgTypes[56]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4809,7 +4921,7 @@ func (x *NSResponse_RecycleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_RecycleResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_RecycleResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 2}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 2}
 }
 
 func (x *NSResponse_RecycleResponse) GetCode() int64 {
@@ -4846,7 +4958,7 @@ type NSResponse_AclResponse struct {
 func (x *NSResponse_AclResponse) Reset() {
 	*x = NSResponse_AclResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[55]
+		mi := &file_Rpc_proto_msgTypes[57]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4859,7 +4971,7 @@ func (x *NSResponse_AclResponse) String() string {
 func (*NSResponse_AclResponse) ProtoMessage() {}
 
 func (x *NSResponse_AclResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[55]
+	mi := &file_Rpc_proto_msgTypes[57]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4872,7 +4984,7 @@ func (x *NSResponse_AclResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_AclResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_AclResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 3}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 3}
 }
 
 func (x *NSResponse_AclResponse) GetCode() int64 {
@@ -4909,7 +5021,7 @@ type NSResponse_QuotaResponse struct {
 func (x *NSResponse_QuotaResponse) Reset() {
 	*x = NSResponse_QuotaResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[56]
+		mi := &file_Rpc_proto_msgTypes[58]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4922,7 +5034,7 @@ func (x *NSResponse_QuotaResponse) String() string {
 func (*NSResponse_QuotaResponse) ProtoMessage() {}
 
 func (x *NSResponse_QuotaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[56]
+	mi := &file_Rpc_proto_msgTypes[58]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4935,7 +5047,7 @@ func (x *NSResponse_QuotaResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_QuotaResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_QuotaResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 4}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 4}
 }
 
 func (x *NSResponse_QuotaResponse) GetCode() int64 {
@@ -4974,7 +5086,7 @@ type NSResponse_ShareInfo struct {
 func (x *NSResponse_ShareInfo) Reset() {
 	*x = NSResponse_ShareInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[57]
+		mi := &file_Rpc_proto_msgTypes[59]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4987,7 +5099,7 @@ func (x *NSResponse_ShareInfo) String() string {
 func (*NSResponse_ShareInfo) ProtoMessage() {}
 
 func (x *NSResponse_ShareInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[57]
+	mi := &file_Rpc_proto_msgTypes[59]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5000,7 +5112,7 @@ func (x *NSResponse_ShareInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_ShareInfo.ProtoReflect.Descriptor instead.
 func (*NSResponse_ShareInfo) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 5}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 5}
 }
 
 func (x *NSResponse_ShareInfo) GetName() string {
@@ -5050,7 +5162,7 @@ type NSResponse_ShareAccess struct {
 func (x *NSResponse_ShareAccess) Reset() {
 	*x = NSResponse_ShareAccess{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[58]
+		mi := &file_Rpc_proto_msgTypes[60]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5063,7 +5175,7 @@ func (x *NSResponse_ShareAccess) String() string {
 func (*NSResponse_ShareAccess) ProtoMessage() {}
 
 func (x *NSResponse_ShareAccess) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[58]
+	mi := &file_Rpc_proto_msgTypes[60]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5076,7 +5188,7 @@ func (x *NSResponse_ShareAccess) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_ShareAccess.ProtoReflect.Descriptor instead.
 func (*NSResponse_ShareAccess) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 6}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 6}
 }
 
 func (x *NSResponse_ShareAccess) GetName() string {
@@ -5107,7 +5219,7 @@ type NSResponse_ShareResponse struct {
 func (x *NSResponse_ShareResponse) Reset() {
 	*x = NSResponse_ShareResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[59]
+		mi := &file_Rpc_proto_msgTypes[61]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5120,7 +5232,7 @@ func (x *NSResponse_ShareResponse) String() string {
 func (*NSResponse_ShareResponse) ProtoMessage() {}
 
 func (x *NSResponse_ShareResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[59]
+	mi := &file_Rpc_proto_msgTypes[61]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5133,7 +5245,7 @@ func (x *NSResponse_ShareResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_ShareResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_ShareResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 7}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 7}
 }
 
 func (x *NSResponse_ShareResponse) GetCode() int64 {
@@ -5176,7 +5288,7 @@ type NSResponse_FileResponse struct {
 func (x *NSResponse_FileResponse) Reset() {
 	*x = NSResponse_FileResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[60]
+		mi := &file_Rpc_proto_msgTypes[62]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5189,7 +5301,7 @@ func (x *NSResponse_FileResponse) String() string {
 func (*NSResponse_FileResponse) ProtoMessage() {}
 
 func (x *NSResponse_FileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[60]
+	mi := &file_Rpc_proto_msgTypes[62]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5202,7 +5314,7 @@ func (x *NSResponse_FileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NSResponse_FileResponse.ProtoReflect.Descriptor instead.
 func (*NSResponse_FileResponse) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 8}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 8}
 }
 
 func (x *NSResponse_FileResponse) GetCode() int64 {
@@ -5231,7 +5343,7 @@ type NSResponse_VersionResponse_VersionInfo struct {
 func (x *NSResponse_VersionResponse_VersionInfo) Reset() {
 	*x = NSResponse_VersionResponse_VersionInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[61]
+		mi := &file_Rpc_proto_msgTypes[63]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5244,7 +5356,7 @@ func (x *NSResponse_VersionResponse_VersionInfo) String() string {
 func (*NSResponse_VersionResponse_VersionInfo) ProtoMessage() {}
 
 func (x *NSResponse_VersionResponse_VersionInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[61]
+	mi := &file_Rpc_proto_msgTypes[63]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5257,7 +5369,7 @@ func (x *NSResponse_VersionResponse_VersionInfo) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use NSResponse_VersionResponse_VersionInfo.ProtoReflect.Descriptor instead.
 func (*NSResponse_VersionResponse_VersionInfo) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 1, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 1, 0}
 }
 
 func (x *NSResponse_VersionResponse_VersionInfo) GetId() *MDId {
@@ -5290,7 +5402,7 @@ type NSResponse_RecycleResponse_RecycleInfo struct {
 func (x *NSResponse_RecycleResponse_RecycleInfo) Reset() {
 	*x = NSResponse_RecycleResponse_RecycleInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_Rpc_proto_msgTypes[62]
+		mi := &file_Rpc_proto_msgTypes[64]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5303,7 +5415,7 @@ func (x *NSResponse_RecycleResponse_RecycleInfo) String() string {
 func (*NSResponse_RecycleResponse_RecycleInfo) ProtoMessage() {}
 
 func (x *NSResponse_RecycleResponse_RecycleInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Rpc_proto_msgTypes[62]
+	mi := &file_Rpc_proto_msgTypes[64]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5316,7 +5428,7 @@ func (x *NSResponse_RecycleResponse_RecycleInfo) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use NSResponse_RecycleResponse_RecycleInfo.ProtoReflect.Descriptor instead.
 func (*NSResponse_RecycleResponse_RecycleInfo) Descriptor() ([]byte, []int) {
-	return file_Rpc_proto_rawDescGZIP(), []int{24, 2, 0}
+	return file_Rpc_proto_rawDescGZIP(), []int{26, 2, 0}
 }
 
 func (x *NSResponse_RecycleResponse_RecycleInfo) GetId() *MDId {
@@ -5375,6 +5487,14 @@ var file_Rpc_proto_rawDesc = []byte{
 	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x25, 0x0a, 0x09, 0x50, 0x69, 0x6e, 0x67,
 	0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22,
+	0x3a, 0x0a, 0x0a, 0x4d, 0x63, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a,
+	0x07, 0x61, 0x75, 0x74, 0x68, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x61, 0x75, 0x74, 0x68, 0x6b, 0x65, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x22, 0x42, 0x0a, 0x08, 0x4d,
+	0x63, 0x70, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x12, 0x22, 0x0a, 0x0c, 0x6e,
+	0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x08, 0x52, 0x0c, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22,
 	0x2f, 0x0a, 0x13, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52,
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
 	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
@@ -6080,58 +6200,61 @@ var file_Rpc_proto_rawDesc = []byte{
 	0x2a, 0x2d, 0x0a, 0x0a, 0x51, 0x55, 0x4f, 0x54, 0x41, 0x45, 0x4e, 0x54, 0x52, 0x59, 0x12, 0x08,
 	0x0a, 0x04, 0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x0a, 0x0a, 0x06, 0x56, 0x4f, 0x4c, 0x55,
 	0x4d, 0x45, 0x10, 0x01, 0x12, 0x09, 0x0a, 0x05, 0x49, 0x4e, 0x4f, 0x44, 0x45, 0x10, 0x02, 0x32,
-	0xb6, 0x05, 0x0a, 0x03, 0x45, 0x6f, 0x73, 0x12, 0x32, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12,
+	0xe7, 0x05, 0x0a, 0x03, 0x45, 0x6f, 0x73, 0x12, 0x32, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12,
 	0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x50, 0x69, 0x6e, 0x67, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e,
-	0x50, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x06, 0x4e,
-	0x6f, 0x74, 0x69, 0x66, 0x79, 0x12, 0x1c, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e,
-	0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x6f,
-	0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x02, 0x4d, 0x44, 0x12, 0x12, 0x2e, 0x65, 0x6f, 0x73,
-	0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4d, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13,
-	0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4d, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x4f, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69, 0x66,
-	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1c, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70,
-	0x63, 0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e,
-	0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x35, 0x0a, 0x04, 0x46, 0x69, 0x6e, 0x64,
-	0x12, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x46, 0x69, 0x6e, 0x64, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63,
-	0x2e, 0x4d, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12,
-	0x3b, 0x0a, 0x06, 0x4e, 0x73, 0x53, 0x74, 0x61, 0x74, 0x12, 0x16, 0x2e, 0x65, 0x6f, 0x73, 0x2e,
-	0x72, 0x70, 0x63, 0x2e, 0x4e, 0x73, 0x53, 0x74, 0x61, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x17, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x73, 0x53, 0x74,
-	0x61, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x0f,
-	0x43, 0x6f, 0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x12,
-	0x1f, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x61, 0x69,
-	0x6e, 0x65, 0x72, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x49, 0x6e, 0x73, 0x65, 0x72,
-	0x74, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x40, 0x0a, 0x0a, 0x46, 0x69, 0x6c, 0x65,
-	0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x12, 0x1a, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63,
-	0x2e, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x49, 0x6e, 0x73,
-	0x65, 0x72, 0x74, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x04, 0x45, 0x78,
-	0x65, 0x63, 0x12, 0x12, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x53, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63,
-	0x2e, 0x4e, 0x53, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x79, 0x0a,
-	0x12, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69, 0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x52,
-	0x61, 0x74, 0x65, 0x12, 0x2e, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x74, 0x72, 0x61, 0x66, 0x66, 0x69,
-	0x63, 0x5f, 0x73, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69,
-	0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x52, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x74, 0x72, 0x61, 0x66, 0x66, 0x69,
-	0x63, 0x5f, 0x73, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69,
-	0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x52, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x42, 0x74, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x2e,
-	0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x42, 0x08, 0x52, 0x70, 0x63, 0x50, 0x72, 0x6f, 0x74,
-	0x6f, 0x50, 0x01, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x63, 0x65, 0x72, 0x6e, 0x2d, 0x65, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x2d, 0x65, 0x6f, 0x73, 0x67,
-	0x72, 0x70, 0x63, 0xa2, 0x02, 0x03, 0x45, 0x52, 0x58, 0xaa, 0x02, 0x07, 0x45, 0x6f, 0x73, 0x2e,
-	0x52, 0x70, 0x63, 0xca, 0x02, 0x07, 0x45, 0x6f, 0x73, 0x5c, 0x52, 0x70, 0x63, 0xe2, 0x02, 0x13,
-	0x45, 0x6f, 0x73, 0x5c, 0x52, 0x70, 0x63, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0xea, 0x02, 0x08, 0x45, 0x6f, 0x73, 0x3a, 0x3a, 0x52, 0x70, 0x63, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x50, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x2f, 0x0a, 0x03, 0x4d,
+	0x63, 0x70, 0x12, 0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4d, 0x63, 0x70,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x4d, 0x63, 0x70, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x06,
+	0x4e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x12, 0x1c, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63,
+	0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e,
+	0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x02, 0x4d, 0x44, 0x12, 0x12, 0x2e, 0x65, 0x6f,
+	0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4d, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4d, 0x44, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x4f, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69,
+	0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1c, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72,
+	0x70, 0x63, 0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63,
+	0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x35, 0x0a, 0x04, 0x46, 0x69, 0x6e,
+	0x64, 0x12, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x46, 0x69, 0x6e, 0x64,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x4d, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01,
+	0x12, 0x3b, 0x0a, 0x06, 0x4e, 0x73, 0x53, 0x74, 0x61, 0x74, 0x12, 0x16, 0x2e, 0x65, 0x6f, 0x73,
+	0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x73, 0x53, 0x74, 0x61, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x17, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x73, 0x53,
+	0x74, 0x61, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4a, 0x0a,
+	0x0f, 0x43, 0x6f, 0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74,
+	0x12, 0x1f, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x61,
+	0x69, 0x6e, 0x65, 0x72, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x49, 0x6e, 0x73, 0x65,
+	0x72, 0x74, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x40, 0x0a, 0x0a, 0x46, 0x69, 0x6c,
+	0x65, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x12, 0x1a, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x49, 0x6e,
+	0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x04, 0x45,
+	0x78, 0x65, 0x63, 0x12, 0x12, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x53,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x4e, 0x53, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x79,
+	0x0a, 0x12, 0x54, 0x72, 0x61, 0x66, 0x66, 0x69, 0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67,
+	0x52, 0x61, 0x74, 0x65, 0x12, 0x2e, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x74, 0x72, 0x61, 0x66, 0x66,
+	0x69, 0x63, 0x5f, 0x73, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x72, 0x61, 0x66, 0x66,
+	0x69, 0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x52, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x74, 0x72, 0x61, 0x66, 0x66,
+	0x69, 0x63, 0x5f, 0x73, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x72, 0x61, 0x66, 0x66,
+	0x69, 0x63, 0x53, 0x68, 0x61, 0x70, 0x69, 0x6e, 0x67, 0x52, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x42, 0x74, 0x0a, 0x0b, 0x63, 0x6f, 0x6d,
+	0x2e, 0x65, 0x6f, 0x73, 0x2e, 0x72, 0x70, 0x63, 0x42, 0x08, 0x52, 0x70, 0x63, 0x50, 0x72, 0x6f,
+	0x74, 0x6f, 0x50, 0x01, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x63, 0x65, 0x72, 0x6e, 0x2d, 0x65, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x2d, 0x65, 0x6f, 0x73,
+	0x67, 0x72, 0x70, 0x63, 0xa2, 0x02, 0x03, 0x45, 0x52, 0x58, 0xaa, 0x02, 0x07, 0x45, 0x6f, 0x73,
+	0x2e, 0x52, 0x70, 0x63, 0xca, 0x02, 0x07, 0x45, 0x6f, 0x73, 0x5c, 0x52, 0x70, 0x63, 0xe2, 0x02,
+	0x13, 0x45, 0x6f, 0x73, 0x5c, 0x52, 0x70, 0x63, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x08, 0x45, 0x6f, 0x73, 0x3a, 0x3a, 0x52, 0x70, 0x63, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -6147,7 +6270,7 @@ func file_Rpc_proto_rawDescGZIP() []byte {
 }
 
 var file_Rpc_proto_enumTypes = make([]protoimpl.EnumInfo, 12)
-var file_Rpc_proto_msgTypes = make([]protoimpl.MessageInfo, 63)
+var file_Rpc_proto_msgTypes = make([]protoimpl.MessageInfo, 65)
 var file_Rpc_proto_goTypes = []interface{}{
 	(TYPE)(0),       // 0: eos.rpc.TYPE
 	(QUOTATYPE)(0),  // 1: eos.rpc.QUOTATYPE
@@ -6163,202 +6286,206 @@ var file_Rpc_proto_goTypes = []interface{}{
 	(NSResponse_RecycleResponse_RecycleInfo_DELETIONTYPE)(0), // 11: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.DELETIONTYPE
 	(*PingRequest)(nil),                                      // 12: eos.rpc.PingRequest
 	(*PingReply)(nil),                                        // 13: eos.rpc.PingReply
-	(*NotificationRequest)(nil),                              // 14: eos.rpc.NotificationRequest
-	(*NotificationResponse)(nil),                             // 15: eos.rpc.NotificationResponse
-	(*ContainerInsertRequest)(nil),                           // 16: eos.rpc.ContainerInsertRequest
-	(*FileInsertRequest)(nil),                                // 17: eos.rpc.FileInsertRequest
-	(*InsertReply)(nil),                                      // 18: eos.rpc.InsertReply
-	(*Time)(nil),                                             // 19: eos.rpc.Time
-	(*Checksum)(nil),                                         // 20: eos.rpc.Checksum
-	(*FileMdProto)(nil),                                      // 21: eos.rpc.FileMdProto
-	(*ContainerMdProto)(nil),                                 // 22: eos.rpc.ContainerMdProto
-	(*QuotaProto)(nil),                                       // 23: eos.rpc.QuotaProto
-	(*RoleId)(nil),                                           // 24: eos.rpc.RoleId
-	(*MDId)(nil),                                             // 25: eos.rpc.MDId
-	(*Limit)(nil),                                            // 26: eos.rpc.Limit
-	(*MDSelection)(nil),                                      // 27: eos.rpc.MDSelection
-	(*MDRequest)(nil),                                        // 28: eos.rpc.MDRequest
-	(*MDResponse)(nil),                                       // 29: eos.rpc.MDResponse
-	(*MDNotification)(nil),                                   // 30: eos.rpc.MDNotification
-	(*FindRequest)(nil),                                      // 31: eos.rpc.FindRequest
-	(*ShareAuth)(nil),                                        // 32: eos.rpc.ShareAuth
-	(*ShareProto)(nil),                                       // 33: eos.rpc.ShareProto
-	(*ShareToken)(nil),                                       // 34: eos.rpc.ShareToken
-	(*NSRequest)(nil),                                        // 35: eos.rpc.NSRequest
-	(*NSResponse)(nil),                                       // 36: eos.rpc.NSResponse
-	(*NsStatRequest)(nil),                                    // 37: eos.rpc.NsStatRequest
-	(*NsStatResponse)(nil),                                   // 38: eos.rpc.NsStatResponse
-	nil,                                                      // 39: eos.rpc.FileMdProto.XattrsEntry
-	nil,                                                      // 40: eos.rpc.ContainerMdProto.XattrsEntry
-	nil,                                                      // 41: eos.rpc.MDSelection.XattrEntry
-	(*NSRequest_MkdirRequest)(nil),                           // 42: eos.rpc.NSRequest.MkdirRequest
-	(*NSRequest_RmdirRequest)(nil),                           // 43: eos.rpc.NSRequest.RmdirRequest
-	(*NSRequest_TouchRequest)(nil),                           // 44: eos.rpc.NSRequest.TouchRequest
-	(*NSRequest_UnlinkRequest)(nil),                          // 45: eos.rpc.NSRequest.UnlinkRequest
-	(*NSRequest_RmRequest)(nil),                              // 46: eos.rpc.NSRequest.RmRequest
-	(*NSRequest_RenameRequest)(nil),                          // 47: eos.rpc.NSRequest.RenameRequest
-	(*NSRequest_SymlinkRequest)(nil),                         // 48: eos.rpc.NSRequest.SymlinkRequest
-	(*NSRequest_VersionRequest)(nil),                         // 49: eos.rpc.NSRequest.VersionRequest
-	(*NSRequest_RecycleRequest)(nil),                         // 50: eos.rpc.NSRequest.RecycleRequest
-	(*NSRequest_SetXAttrRequest)(nil),                        // 51: eos.rpc.NSRequest.SetXAttrRequest
-	(*NSRequest_ChownRequest)(nil),                           // 52: eos.rpc.NSRequest.ChownRequest
-	(*NSRequest_ChmodRequest)(nil),                           // 53: eos.rpc.NSRequest.ChmodRequest
-	(*NSRequest_AclRequest)(nil),                             // 54: eos.rpc.NSRequest.AclRequest
-	(*NSRequest_TokenRequest)(nil),                           // 55: eos.rpc.NSRequest.TokenRequest
-	(*NSRequest_QuotaRequest)(nil),                           // 56: eos.rpc.NSRequest.QuotaRequest
-	(*NSRequest_ShareRequest)(nil),                           // 57: eos.rpc.NSRequest.ShareRequest
-	(*NSRequest_RecycleRequest_RestoreFlags)(nil),            // 58: eos.rpc.NSRequest.RecycleRequest.RestoreFlags
-	(*NSRequest_RecycleRequest_PurgeDate)(nil),               // 59: eos.rpc.NSRequest.RecycleRequest.PurgeDate
-	(*NSRequest_RecycleRequest_ListFlags)(nil),               // 60: eos.rpc.NSRequest.RecycleRequest.ListFlags
-	nil,                                    // 61: eos.rpc.NSRequest.SetXAttrRequest.XattrsEntry
-	(*NSRequest_ShareRequest_LsShare)(nil), // 62: eos.rpc.NSRequest.ShareRequest.LsShare
-	(*NSRequest_ShareRequest_OperateShare)(nil),       // 63: eos.rpc.NSRequest.ShareRequest.OperateShare
-	(*NSResponse_ErrorResponse)(nil),                  // 64: eos.rpc.NSResponse.ErrorResponse
-	(*NSResponse_VersionResponse)(nil),                // 65: eos.rpc.NSResponse.VersionResponse
-	(*NSResponse_RecycleResponse)(nil),                // 66: eos.rpc.NSResponse.RecycleResponse
-	(*NSResponse_AclResponse)(nil),                    // 67: eos.rpc.NSResponse.AclResponse
-	(*NSResponse_QuotaResponse)(nil),                  // 68: eos.rpc.NSResponse.QuotaResponse
-	(*NSResponse_ShareInfo)(nil),                      // 69: eos.rpc.NSResponse.ShareInfo
-	(*NSResponse_ShareAccess)(nil),                    // 70: eos.rpc.NSResponse.ShareAccess
-	(*NSResponse_ShareResponse)(nil),                  // 71: eos.rpc.NSResponse.ShareResponse
-	(*NSResponse_FileResponse)(nil),                   // 72: eos.rpc.NSResponse.FileResponse
-	(*NSResponse_VersionResponse_VersionInfo)(nil),    // 73: eos.rpc.NSResponse.VersionResponse.VersionInfo
-	(*NSResponse_RecycleResponse_RecycleInfo)(nil),    // 74: eos.rpc.NSResponse.RecycleResponse.RecycleInfo
-	(*console.RecycleProto)(nil),                      // 75: eos.console.RecycleProto
-	(*console.FileProto)(nil),                         // 76: eos.console.FileProto
-	(*trafficshaping.TrafficShapingRateRequest)(nil),  // 77: eos.traffic_shaping.TrafficShapingRateRequest
-	(*trafficshaping.TrafficShapingRateResponse)(nil), // 78: eos.traffic_shaping.TrafficShapingRateResponse
+	(*McpRequest)(nil),                                       // 14: eos.rpc.McpRequest
+	(*McpReply)(nil),                                         // 15: eos.rpc.McpReply
+	(*NotificationRequest)(nil),                              // 16: eos.rpc.NotificationRequest
+	(*NotificationResponse)(nil),                             // 17: eos.rpc.NotificationResponse
+	(*ContainerInsertRequest)(nil),                           // 18: eos.rpc.ContainerInsertRequest
+	(*FileInsertRequest)(nil),                                // 19: eos.rpc.FileInsertRequest
+	(*InsertReply)(nil),                                      // 20: eos.rpc.InsertReply
+	(*Time)(nil),                                             // 21: eos.rpc.Time
+	(*Checksum)(nil),                                         // 22: eos.rpc.Checksum
+	(*FileMdProto)(nil),                                      // 23: eos.rpc.FileMdProto
+	(*ContainerMdProto)(nil),                                 // 24: eos.rpc.ContainerMdProto
+	(*QuotaProto)(nil),                                       // 25: eos.rpc.QuotaProto
+	(*RoleId)(nil),                                           // 26: eos.rpc.RoleId
+	(*MDId)(nil),                                             // 27: eos.rpc.MDId
+	(*Limit)(nil),                                            // 28: eos.rpc.Limit
+	(*MDSelection)(nil),                                      // 29: eos.rpc.MDSelection
+	(*MDRequest)(nil),                                        // 30: eos.rpc.MDRequest
+	(*MDResponse)(nil),                                       // 31: eos.rpc.MDResponse
+	(*MDNotification)(nil),                                   // 32: eos.rpc.MDNotification
+	(*FindRequest)(nil),                                      // 33: eos.rpc.FindRequest
+	(*ShareAuth)(nil),                                        // 34: eos.rpc.ShareAuth
+	(*ShareProto)(nil),                                       // 35: eos.rpc.ShareProto
+	(*ShareToken)(nil),                                       // 36: eos.rpc.ShareToken
+	(*NSRequest)(nil),                                        // 37: eos.rpc.NSRequest
+	(*NSResponse)(nil),                                       // 38: eos.rpc.NSResponse
+	(*NsStatRequest)(nil),                                    // 39: eos.rpc.NsStatRequest
+	(*NsStatResponse)(nil),                                   // 40: eos.rpc.NsStatResponse
+	nil,                                                      // 41: eos.rpc.FileMdProto.XattrsEntry
+	nil,                                                      // 42: eos.rpc.ContainerMdProto.XattrsEntry
+	nil,                                                      // 43: eos.rpc.MDSelection.XattrEntry
+	(*NSRequest_MkdirRequest)(nil),                           // 44: eos.rpc.NSRequest.MkdirRequest
+	(*NSRequest_RmdirRequest)(nil),                           // 45: eos.rpc.NSRequest.RmdirRequest
+	(*NSRequest_TouchRequest)(nil),                           // 46: eos.rpc.NSRequest.TouchRequest
+	(*NSRequest_UnlinkRequest)(nil),                          // 47: eos.rpc.NSRequest.UnlinkRequest
+	(*NSRequest_RmRequest)(nil),                              // 48: eos.rpc.NSRequest.RmRequest
+	(*NSRequest_RenameRequest)(nil),                          // 49: eos.rpc.NSRequest.RenameRequest
+	(*NSRequest_SymlinkRequest)(nil),                         // 50: eos.rpc.NSRequest.SymlinkRequest
+	(*NSRequest_VersionRequest)(nil),                         // 51: eos.rpc.NSRequest.VersionRequest
+	(*NSRequest_RecycleRequest)(nil),                         // 52: eos.rpc.NSRequest.RecycleRequest
+	(*NSRequest_SetXAttrRequest)(nil),                        // 53: eos.rpc.NSRequest.SetXAttrRequest
+	(*NSRequest_ChownRequest)(nil),                           // 54: eos.rpc.NSRequest.ChownRequest
+	(*NSRequest_ChmodRequest)(nil),                           // 55: eos.rpc.NSRequest.ChmodRequest
+	(*NSRequest_AclRequest)(nil),                             // 56: eos.rpc.NSRequest.AclRequest
+	(*NSRequest_TokenRequest)(nil),                           // 57: eos.rpc.NSRequest.TokenRequest
+	(*NSRequest_QuotaRequest)(nil),                           // 58: eos.rpc.NSRequest.QuotaRequest
+	(*NSRequest_ShareRequest)(nil),                           // 59: eos.rpc.NSRequest.ShareRequest
+	(*NSRequest_RecycleRequest_RestoreFlags)(nil),            // 60: eos.rpc.NSRequest.RecycleRequest.RestoreFlags
+	(*NSRequest_RecycleRequest_PurgeDate)(nil),               // 61: eos.rpc.NSRequest.RecycleRequest.PurgeDate
+	(*NSRequest_RecycleRequest_ListFlags)(nil),               // 62: eos.rpc.NSRequest.RecycleRequest.ListFlags
+	nil,                                    // 63: eos.rpc.NSRequest.SetXAttrRequest.XattrsEntry
+	(*NSRequest_ShareRequest_LsShare)(nil), // 64: eos.rpc.NSRequest.ShareRequest.LsShare
+	(*NSRequest_ShareRequest_OperateShare)(nil),       // 65: eos.rpc.NSRequest.ShareRequest.OperateShare
+	(*NSResponse_ErrorResponse)(nil),                  // 66: eos.rpc.NSResponse.ErrorResponse
+	(*NSResponse_VersionResponse)(nil),                // 67: eos.rpc.NSResponse.VersionResponse
+	(*NSResponse_RecycleResponse)(nil),                // 68: eos.rpc.NSResponse.RecycleResponse
+	(*NSResponse_AclResponse)(nil),                    // 69: eos.rpc.NSResponse.AclResponse
+	(*NSResponse_QuotaResponse)(nil),                  // 70: eos.rpc.NSResponse.QuotaResponse
+	(*NSResponse_ShareInfo)(nil),                      // 71: eos.rpc.NSResponse.ShareInfo
+	(*NSResponse_ShareAccess)(nil),                    // 72: eos.rpc.NSResponse.ShareAccess
+	(*NSResponse_ShareResponse)(nil),                  // 73: eos.rpc.NSResponse.ShareResponse
+	(*NSResponse_FileResponse)(nil),                   // 74: eos.rpc.NSResponse.FileResponse
+	(*NSResponse_VersionResponse_VersionInfo)(nil),    // 75: eos.rpc.NSResponse.VersionResponse.VersionInfo
+	(*NSResponse_RecycleResponse_RecycleInfo)(nil),    // 76: eos.rpc.NSResponse.RecycleResponse.RecycleInfo
+	(*console.RecycleProto)(nil),                      // 77: eos.console.RecycleProto
+	(*console.FileProto)(nil),                         // 78: eos.console.FileProto
+	(*trafficshaping.TrafficShapingRateRequest)(nil),  // 79: eos.traffic_shaping.TrafficShapingRateRequest
+	(*trafficshaping.TrafficShapingRateResponse)(nil), // 80: eos.traffic_shaping.TrafficShapingRateResponse
 }
 var file_Rpc_proto_depIdxs = []int32{
-	22,  // 0: eos.rpc.ContainerInsertRequest.container:type_name -> eos.rpc.ContainerMdProto
-	21,  // 1: eos.rpc.FileInsertRequest.files:type_name -> eos.rpc.FileMdProto
-	19,  // 2: eos.rpc.FileMdProto.ctime:type_name -> eos.rpc.Time
-	19,  // 3: eos.rpc.FileMdProto.mtime:type_name -> eos.rpc.Time
-	20,  // 4: eos.rpc.FileMdProto.checksum:type_name -> eos.rpc.Checksum
-	39,  // 5: eos.rpc.FileMdProto.xattrs:type_name -> eos.rpc.FileMdProto.XattrsEntry
-	20,  // 6: eos.rpc.FileMdProto.checksums:type_name -> eos.rpc.Checksum
-	19,  // 7: eos.rpc.ContainerMdProto.ctime:type_name -> eos.rpc.Time
-	19,  // 8: eos.rpc.ContainerMdProto.mtime:type_name -> eos.rpc.Time
-	19,  // 9: eos.rpc.ContainerMdProto.stime:type_name -> eos.rpc.Time
-	40,  // 10: eos.rpc.ContainerMdProto.xattrs:type_name -> eos.rpc.ContainerMdProto.XattrsEntry
+	24,  // 0: eos.rpc.ContainerInsertRequest.container:type_name -> eos.rpc.ContainerMdProto
+	23,  // 1: eos.rpc.FileInsertRequest.files:type_name -> eos.rpc.FileMdProto
+	21,  // 2: eos.rpc.FileMdProto.ctime:type_name -> eos.rpc.Time
+	21,  // 3: eos.rpc.FileMdProto.mtime:type_name -> eos.rpc.Time
+	22,  // 4: eos.rpc.FileMdProto.checksum:type_name -> eos.rpc.Checksum
+	41,  // 5: eos.rpc.FileMdProto.xattrs:type_name -> eos.rpc.FileMdProto.XattrsEntry
+	22,  // 6: eos.rpc.FileMdProto.checksums:type_name -> eos.rpc.Checksum
+	21,  // 7: eos.rpc.ContainerMdProto.ctime:type_name -> eos.rpc.Time
+	21,  // 8: eos.rpc.ContainerMdProto.mtime:type_name -> eos.rpc.Time
+	21,  // 9: eos.rpc.ContainerMdProto.stime:type_name -> eos.rpc.Time
+	42,  // 10: eos.rpc.ContainerMdProto.xattrs:type_name -> eos.rpc.ContainerMdProto.XattrsEntry
 	1,   // 11: eos.rpc.QuotaProto.type:type_name -> eos.rpc.QUOTATYPE
 	0,   // 12: eos.rpc.MDId.type:type_name -> eos.rpc.TYPE
-	26,  // 13: eos.rpc.MDSelection.ctime:type_name -> eos.rpc.Limit
-	26,  // 14: eos.rpc.MDSelection.mtime:type_name -> eos.rpc.Limit
-	26,  // 15: eos.rpc.MDSelection.stime:type_name -> eos.rpc.Limit
-	26,  // 16: eos.rpc.MDSelection.size:type_name -> eos.rpc.Limit
-	26,  // 17: eos.rpc.MDSelection.treesize:type_name -> eos.rpc.Limit
-	26,  // 18: eos.rpc.MDSelection.children:type_name -> eos.rpc.Limit
-	26,  // 19: eos.rpc.MDSelection.locations:type_name -> eos.rpc.Limit
-	26,  // 20: eos.rpc.MDSelection.unlinked_locations:type_name -> eos.rpc.Limit
-	20,  // 21: eos.rpc.MDSelection.checksum:type_name -> eos.rpc.Checksum
-	41,  // 22: eos.rpc.MDSelection.xattr:type_name -> eos.rpc.MDSelection.XattrEntry
+	28,  // 13: eos.rpc.MDSelection.ctime:type_name -> eos.rpc.Limit
+	28,  // 14: eos.rpc.MDSelection.mtime:type_name -> eos.rpc.Limit
+	28,  // 15: eos.rpc.MDSelection.stime:type_name -> eos.rpc.Limit
+	28,  // 16: eos.rpc.MDSelection.size:type_name -> eos.rpc.Limit
+	28,  // 17: eos.rpc.MDSelection.treesize:type_name -> eos.rpc.Limit
+	28,  // 18: eos.rpc.MDSelection.children:type_name -> eos.rpc.Limit
+	28,  // 19: eos.rpc.MDSelection.locations:type_name -> eos.rpc.Limit
+	28,  // 20: eos.rpc.MDSelection.unlinked_locations:type_name -> eos.rpc.Limit
+	22,  // 21: eos.rpc.MDSelection.checksum:type_name -> eos.rpc.Checksum
+	43,  // 22: eos.rpc.MDSelection.xattr:type_name -> eos.rpc.MDSelection.XattrEntry
 	0,   // 23: eos.rpc.MDRequest.type:type_name -> eos.rpc.TYPE
-	25,  // 24: eos.rpc.MDRequest.id:type_name -> eos.rpc.MDId
-	24,  // 25: eos.rpc.MDRequest.role:type_name -> eos.rpc.RoleId
-	27,  // 26: eos.rpc.MDRequest.selection:type_name -> eos.rpc.MDSelection
+	27,  // 24: eos.rpc.MDRequest.id:type_name -> eos.rpc.MDId
+	26,  // 25: eos.rpc.MDRequest.role:type_name -> eos.rpc.RoleId
+	29,  // 26: eos.rpc.MDRequest.selection:type_name -> eos.rpc.MDSelection
 	0,   // 27: eos.rpc.MDResponse.type:type_name -> eos.rpc.TYPE
-	21,  // 28: eos.rpc.MDResponse.fmd:type_name -> eos.rpc.FileMdProto
-	22,  // 29: eos.rpc.MDResponse.cmd:type_name -> eos.rpc.ContainerMdProto
+	23,  // 28: eos.rpc.MDResponse.fmd:type_name -> eos.rpc.FileMdProto
+	24,  // 29: eos.rpc.MDResponse.cmd:type_name -> eos.rpc.ContainerMdProto
 	0,   // 30: eos.rpc.MDNotification.type:type_name -> eos.rpc.TYPE
-	21,  // 31: eos.rpc.MDNotification.fmd:type_name -> eos.rpc.FileMdProto
-	22,  // 32: eos.rpc.MDNotification.cmd:type_name -> eos.rpc.ContainerMdProto
-	24,  // 33: eos.rpc.MDNotification.role:type_name -> eos.rpc.RoleId
+	23,  // 31: eos.rpc.MDNotification.fmd:type_name -> eos.rpc.FileMdProto
+	24,  // 32: eos.rpc.MDNotification.cmd:type_name -> eos.rpc.ContainerMdProto
+	26,  // 33: eos.rpc.MDNotification.role:type_name -> eos.rpc.RoleId
 	0,   // 34: eos.rpc.FindRequest.type:type_name -> eos.rpc.TYPE
-	25,  // 35: eos.rpc.FindRequest.id:type_name -> eos.rpc.MDId
-	24,  // 36: eos.rpc.FindRequest.role:type_name -> eos.rpc.RoleId
-	27,  // 37: eos.rpc.FindRequest.selection:type_name -> eos.rpc.MDSelection
-	32,  // 38: eos.rpc.ShareProto.origins:type_name -> eos.rpc.ShareAuth
-	33,  // 39: eos.rpc.ShareToken.token:type_name -> eos.rpc.ShareProto
-	24,  // 40: eos.rpc.NSRequest.role:type_name -> eos.rpc.RoleId
-	42,  // 41: eos.rpc.NSRequest.mkdir:type_name -> eos.rpc.NSRequest.MkdirRequest
-	43,  // 42: eos.rpc.NSRequest.rmdir:type_name -> eos.rpc.NSRequest.RmdirRequest
-	44,  // 43: eos.rpc.NSRequest.touch:type_name -> eos.rpc.NSRequest.TouchRequest
-	45,  // 44: eos.rpc.NSRequest.unlink:type_name -> eos.rpc.NSRequest.UnlinkRequest
-	46,  // 45: eos.rpc.NSRequest.rm:type_name -> eos.rpc.NSRequest.RmRequest
-	47,  // 46: eos.rpc.NSRequest.rename:type_name -> eos.rpc.NSRequest.RenameRequest
-	48,  // 47: eos.rpc.NSRequest.symlink:type_name -> eos.rpc.NSRequest.SymlinkRequest
-	49,  // 48: eos.rpc.NSRequest.version:type_name -> eos.rpc.NSRequest.VersionRequest
-	50,  // 49: eos.rpc.NSRequest.old_recycle:type_name -> eos.rpc.NSRequest.RecycleRequest
-	51,  // 50: eos.rpc.NSRequest.xattr:type_name -> eos.rpc.NSRequest.SetXAttrRequest
-	52,  // 51: eos.rpc.NSRequest.chown:type_name -> eos.rpc.NSRequest.ChownRequest
-	53,  // 52: eos.rpc.NSRequest.chmod:type_name -> eos.rpc.NSRequest.ChmodRequest
-	54,  // 53: eos.rpc.NSRequest.acl:type_name -> eos.rpc.NSRequest.AclRequest
-	55,  // 54: eos.rpc.NSRequest.token:type_name -> eos.rpc.NSRequest.TokenRequest
-	56,  // 55: eos.rpc.NSRequest.quota:type_name -> eos.rpc.NSRequest.QuotaRequest
-	57,  // 56: eos.rpc.NSRequest.share:type_name -> eos.rpc.NSRequest.ShareRequest
-	75,  // 57: eos.rpc.NSRequest.recycle:type_name -> eos.console.RecycleProto
-	76,  // 58: eos.rpc.NSRequest.file:type_name -> eos.console.FileProto
-	64,  // 59: eos.rpc.NSResponse.error:type_name -> eos.rpc.NSResponse.ErrorResponse
-	65,  // 60: eos.rpc.NSResponse.version:type_name -> eos.rpc.NSResponse.VersionResponse
-	66,  // 61: eos.rpc.NSResponse.recycle:type_name -> eos.rpc.NSResponse.RecycleResponse
-	67,  // 62: eos.rpc.NSResponse.acl:type_name -> eos.rpc.NSResponse.AclResponse
-	68,  // 63: eos.rpc.NSResponse.quota:type_name -> eos.rpc.NSResponse.QuotaResponse
-	71,  // 64: eos.rpc.NSResponse.share:type_name -> eos.rpc.NSResponse.ShareResponse
-	72,  // 65: eos.rpc.NSResponse.file:type_name -> eos.rpc.NSResponse.FileResponse
-	25,  // 66: eos.rpc.NSRequest.MkdirRequest.id:type_name -> eos.rpc.MDId
-	25,  // 67: eos.rpc.NSRequest.RmdirRequest.id:type_name -> eos.rpc.MDId
-	25,  // 68: eos.rpc.NSRequest.TouchRequest.id:type_name -> eos.rpc.MDId
-	25,  // 69: eos.rpc.NSRequest.UnlinkRequest.id:type_name -> eos.rpc.MDId
-	25,  // 70: eos.rpc.NSRequest.RmRequest.id:type_name -> eos.rpc.MDId
-	25,  // 71: eos.rpc.NSRequest.RenameRequest.id:type_name -> eos.rpc.MDId
-	25,  // 72: eos.rpc.NSRequest.SymlinkRequest.id:type_name -> eos.rpc.MDId
-	25,  // 73: eos.rpc.NSRequest.VersionRequest.id:type_name -> eos.rpc.MDId
+	27,  // 35: eos.rpc.FindRequest.id:type_name -> eos.rpc.MDId
+	26,  // 36: eos.rpc.FindRequest.role:type_name -> eos.rpc.RoleId
+	29,  // 37: eos.rpc.FindRequest.selection:type_name -> eos.rpc.MDSelection
+	34,  // 38: eos.rpc.ShareProto.origins:type_name -> eos.rpc.ShareAuth
+	35,  // 39: eos.rpc.ShareToken.token:type_name -> eos.rpc.ShareProto
+	26,  // 40: eos.rpc.NSRequest.role:type_name -> eos.rpc.RoleId
+	44,  // 41: eos.rpc.NSRequest.mkdir:type_name -> eos.rpc.NSRequest.MkdirRequest
+	45,  // 42: eos.rpc.NSRequest.rmdir:type_name -> eos.rpc.NSRequest.RmdirRequest
+	46,  // 43: eos.rpc.NSRequest.touch:type_name -> eos.rpc.NSRequest.TouchRequest
+	47,  // 44: eos.rpc.NSRequest.unlink:type_name -> eos.rpc.NSRequest.UnlinkRequest
+	48,  // 45: eos.rpc.NSRequest.rm:type_name -> eos.rpc.NSRequest.RmRequest
+	49,  // 46: eos.rpc.NSRequest.rename:type_name -> eos.rpc.NSRequest.RenameRequest
+	50,  // 47: eos.rpc.NSRequest.symlink:type_name -> eos.rpc.NSRequest.SymlinkRequest
+	51,  // 48: eos.rpc.NSRequest.version:type_name -> eos.rpc.NSRequest.VersionRequest
+	52,  // 49: eos.rpc.NSRequest.old_recycle:type_name -> eos.rpc.NSRequest.RecycleRequest
+	53,  // 50: eos.rpc.NSRequest.xattr:type_name -> eos.rpc.NSRequest.SetXAttrRequest
+	54,  // 51: eos.rpc.NSRequest.chown:type_name -> eos.rpc.NSRequest.ChownRequest
+	55,  // 52: eos.rpc.NSRequest.chmod:type_name -> eos.rpc.NSRequest.ChmodRequest
+	56,  // 53: eos.rpc.NSRequest.acl:type_name -> eos.rpc.NSRequest.AclRequest
+	57,  // 54: eos.rpc.NSRequest.token:type_name -> eos.rpc.NSRequest.TokenRequest
+	58,  // 55: eos.rpc.NSRequest.quota:type_name -> eos.rpc.NSRequest.QuotaRequest
+	59,  // 56: eos.rpc.NSRequest.share:type_name -> eos.rpc.NSRequest.ShareRequest
+	77,  // 57: eos.rpc.NSRequest.recycle:type_name -> eos.console.RecycleProto
+	78,  // 58: eos.rpc.NSRequest.file:type_name -> eos.console.FileProto
+	66,  // 59: eos.rpc.NSResponse.error:type_name -> eos.rpc.NSResponse.ErrorResponse
+	67,  // 60: eos.rpc.NSResponse.version:type_name -> eos.rpc.NSResponse.VersionResponse
+	68,  // 61: eos.rpc.NSResponse.recycle:type_name -> eos.rpc.NSResponse.RecycleResponse
+	69,  // 62: eos.rpc.NSResponse.acl:type_name -> eos.rpc.NSResponse.AclResponse
+	70,  // 63: eos.rpc.NSResponse.quota:type_name -> eos.rpc.NSResponse.QuotaResponse
+	73,  // 64: eos.rpc.NSResponse.share:type_name -> eos.rpc.NSResponse.ShareResponse
+	74,  // 65: eos.rpc.NSResponse.file:type_name -> eos.rpc.NSResponse.FileResponse
+	27,  // 66: eos.rpc.NSRequest.MkdirRequest.id:type_name -> eos.rpc.MDId
+	27,  // 67: eos.rpc.NSRequest.RmdirRequest.id:type_name -> eos.rpc.MDId
+	27,  // 68: eos.rpc.NSRequest.TouchRequest.id:type_name -> eos.rpc.MDId
+	27,  // 69: eos.rpc.NSRequest.UnlinkRequest.id:type_name -> eos.rpc.MDId
+	27,  // 70: eos.rpc.NSRequest.RmRequest.id:type_name -> eos.rpc.MDId
+	27,  // 71: eos.rpc.NSRequest.RenameRequest.id:type_name -> eos.rpc.MDId
+	27,  // 72: eos.rpc.NSRequest.SymlinkRequest.id:type_name -> eos.rpc.MDId
+	27,  // 73: eos.rpc.NSRequest.VersionRequest.id:type_name -> eos.rpc.MDId
 	4,   // 74: eos.rpc.NSRequest.VersionRequest.cmd:type_name -> eos.rpc.NSRequest.VersionRequest.VERSION_CMD
 	6,   // 75: eos.rpc.NSRequest.RecycleRequest.cmd:type_name -> eos.rpc.NSRequest.RecycleRequest.RECYCLE_CMD
-	58,  // 76: eos.rpc.NSRequest.RecycleRequest.restoreflag:type_name -> eos.rpc.NSRequest.RecycleRequest.RestoreFlags
-	59,  // 77: eos.rpc.NSRequest.RecycleRequest.purgedate:type_name -> eos.rpc.NSRequest.RecycleRequest.PurgeDate
-	60,  // 78: eos.rpc.NSRequest.RecycleRequest.listflag:type_name -> eos.rpc.NSRequest.RecycleRequest.ListFlags
-	25,  // 79: eos.rpc.NSRequest.SetXAttrRequest.id:type_name -> eos.rpc.MDId
-	61,  // 80: eos.rpc.NSRequest.SetXAttrRequest.xattrs:type_name -> eos.rpc.NSRequest.SetXAttrRequest.XattrsEntry
-	25,  // 81: eos.rpc.NSRequest.ChownRequest.id:type_name -> eos.rpc.MDId
-	24,  // 82: eos.rpc.NSRequest.ChownRequest.owner:type_name -> eos.rpc.RoleId
-	25,  // 83: eos.rpc.NSRequest.ChmodRequest.id:type_name -> eos.rpc.MDId
-	25,  // 84: eos.rpc.NSRequest.AclRequest.id:type_name -> eos.rpc.MDId
+	60,  // 76: eos.rpc.NSRequest.RecycleRequest.restoreflag:type_name -> eos.rpc.NSRequest.RecycleRequest.RestoreFlags
+	61,  // 77: eos.rpc.NSRequest.RecycleRequest.purgedate:type_name -> eos.rpc.NSRequest.RecycleRequest.PurgeDate
+	62,  // 78: eos.rpc.NSRequest.RecycleRequest.listflag:type_name -> eos.rpc.NSRequest.RecycleRequest.ListFlags
+	27,  // 79: eos.rpc.NSRequest.SetXAttrRequest.id:type_name -> eos.rpc.MDId
+	63,  // 80: eos.rpc.NSRequest.SetXAttrRequest.xattrs:type_name -> eos.rpc.NSRequest.SetXAttrRequest.XattrsEntry
+	27,  // 81: eos.rpc.NSRequest.ChownRequest.id:type_name -> eos.rpc.MDId
+	26,  // 82: eos.rpc.NSRequest.ChownRequest.owner:type_name -> eos.rpc.RoleId
+	27,  // 83: eos.rpc.NSRequest.ChmodRequest.id:type_name -> eos.rpc.MDId
+	27,  // 84: eos.rpc.NSRequest.AclRequest.id:type_name -> eos.rpc.MDId
 	7,   // 85: eos.rpc.NSRequest.AclRequest.cmd:type_name -> eos.rpc.NSRequest.AclRequest.ACL_COMMAND
 	8,   // 86: eos.rpc.NSRequest.AclRequest.type:type_name -> eos.rpc.NSRequest.AclRequest.ACL_TYPE
-	34,  // 87: eos.rpc.NSRequest.TokenRequest.token:type_name -> eos.rpc.ShareToken
-	24,  // 88: eos.rpc.NSRequest.QuotaRequest.id:type_name -> eos.rpc.RoleId
+	36,  // 87: eos.rpc.NSRequest.TokenRequest.token:type_name -> eos.rpc.ShareToken
+	26,  // 88: eos.rpc.NSRequest.QuotaRequest.id:type_name -> eos.rpc.RoleId
 	2,   // 89: eos.rpc.NSRequest.QuotaRequest.op:type_name -> eos.rpc.QUOTAOP
 	3,   // 90: eos.rpc.NSRequest.QuotaRequest.entry:type_name -> eos.rpc.QUOTAENTRY
-	62,  // 91: eos.rpc.NSRequest.ShareRequest.ls:type_name -> eos.rpc.NSRequest.ShareRequest.LsShare
-	63,  // 92: eos.rpc.NSRequest.ShareRequest.op:type_name -> eos.rpc.NSRequest.ShareRequest.OperateShare
+	64,  // 91: eos.rpc.NSRequest.ShareRequest.ls:type_name -> eos.rpc.NSRequest.ShareRequest.LsShare
+	65,  // 92: eos.rpc.NSRequest.ShareRequest.op:type_name -> eos.rpc.NSRequest.ShareRequest.OperateShare
 	5,   // 93: eos.rpc.NSRequest.RecycleRequest.ListFlags.display:type_name -> eos.rpc.NSRequest.RecycleRequest.DisplayType
 	9,   // 94: eos.rpc.NSRequest.ShareRequest.LsShare.outformat:type_name -> eos.rpc.NSRequest.ShareRequest.LsShare.OutFormat
 	10,  // 95: eos.rpc.NSRequest.ShareRequest.OperateShare.op:type_name -> eos.rpc.NSRequest.ShareRequest.OperateShare.Op
-	73,  // 96: eos.rpc.NSResponse.VersionResponse.versions:type_name -> eos.rpc.NSResponse.VersionResponse.VersionInfo
-	74,  // 97: eos.rpc.NSResponse.RecycleResponse.recycles:type_name -> eos.rpc.NSResponse.RecycleResponse.RecycleInfo
-	23,  // 98: eos.rpc.NSResponse.QuotaResponse.quotanode:type_name -> eos.rpc.QuotaProto
-	69,  // 99: eos.rpc.NSResponse.ShareResponse.shares:type_name -> eos.rpc.NSResponse.ShareInfo
-	70,  // 100: eos.rpc.NSResponse.ShareResponse.access:type_name -> eos.rpc.NSResponse.ShareAccess
-	25,  // 101: eos.rpc.NSResponse.VersionResponse.VersionInfo.id:type_name -> eos.rpc.MDId
-	19,  // 102: eos.rpc.NSResponse.VersionResponse.VersionInfo.mtime:type_name -> eos.rpc.Time
-	25,  // 103: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.id:type_name -> eos.rpc.MDId
-	24,  // 104: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.owner:type_name -> eos.rpc.RoleId
-	19,  // 105: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.dtime:type_name -> eos.rpc.Time
+	75,  // 96: eos.rpc.NSResponse.VersionResponse.versions:type_name -> eos.rpc.NSResponse.VersionResponse.VersionInfo
+	76,  // 97: eos.rpc.NSResponse.RecycleResponse.recycles:type_name -> eos.rpc.NSResponse.RecycleResponse.RecycleInfo
+	25,  // 98: eos.rpc.NSResponse.QuotaResponse.quotanode:type_name -> eos.rpc.QuotaProto
+	71,  // 99: eos.rpc.NSResponse.ShareResponse.shares:type_name -> eos.rpc.NSResponse.ShareInfo
+	72,  // 100: eos.rpc.NSResponse.ShareResponse.access:type_name -> eos.rpc.NSResponse.ShareAccess
+	27,  // 101: eos.rpc.NSResponse.VersionResponse.VersionInfo.id:type_name -> eos.rpc.MDId
+	21,  // 102: eos.rpc.NSResponse.VersionResponse.VersionInfo.mtime:type_name -> eos.rpc.Time
+	27,  // 103: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.id:type_name -> eos.rpc.MDId
+	26,  // 104: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.owner:type_name -> eos.rpc.RoleId
+	21,  // 105: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.dtime:type_name -> eos.rpc.Time
 	11,  // 106: eos.rpc.NSResponse.RecycleResponse.RecycleInfo.type:type_name -> eos.rpc.NSResponse.RecycleResponse.RecycleInfo.DELETIONTYPE
 	12,  // 107: eos.rpc.Eos.Ping:input_type -> eos.rpc.PingRequest
-	14,  // 108: eos.rpc.Eos.Notify:input_type -> eos.rpc.NotificationRequest
-	28,  // 109: eos.rpc.Eos.MD:input_type -> eos.rpc.MDRequest
-	14,  // 110: eos.rpc.Eos.Notification:input_type -> eos.rpc.NotificationRequest
-	31,  // 111: eos.rpc.Eos.Find:input_type -> eos.rpc.FindRequest
-	37,  // 112: eos.rpc.Eos.NsStat:input_type -> eos.rpc.NsStatRequest
-	16,  // 113: eos.rpc.Eos.ContainerInsert:input_type -> eos.rpc.ContainerInsertRequest
-	17,  // 114: eos.rpc.Eos.FileInsert:input_type -> eos.rpc.FileInsertRequest
-	35,  // 115: eos.rpc.Eos.Exec:input_type -> eos.rpc.NSRequest
-	77,  // 116: eos.rpc.Eos.TrafficShapingRate:input_type -> eos.traffic_shaping.TrafficShapingRateRequest
-	13,  // 117: eos.rpc.Eos.Ping:output_type -> eos.rpc.PingReply
-	15,  // 118: eos.rpc.Eos.Notify:output_type -> eos.rpc.NotificationResponse
-	29,  // 119: eos.rpc.Eos.MD:output_type -> eos.rpc.MDResponse
-	15,  // 120: eos.rpc.Eos.Notification:output_type -> eos.rpc.NotificationResponse
-	29,  // 121: eos.rpc.Eos.Find:output_type -> eos.rpc.MDResponse
-	38,  // 122: eos.rpc.Eos.NsStat:output_type -> eos.rpc.NsStatResponse
-	18,  // 123: eos.rpc.Eos.ContainerInsert:output_type -> eos.rpc.InsertReply
-	18,  // 124: eos.rpc.Eos.FileInsert:output_type -> eos.rpc.InsertReply
-	36,  // 125: eos.rpc.Eos.Exec:output_type -> eos.rpc.NSResponse
-	78,  // 126: eos.rpc.Eos.TrafficShapingRate:output_type -> eos.traffic_shaping.TrafficShapingRateResponse
-	117, // [117:127] is the sub-list for method output_type
-	107, // [107:117] is the sub-list for method input_type
+	14,  // 108: eos.rpc.Eos.Mcp:input_type -> eos.rpc.McpRequest
+	16,  // 109: eos.rpc.Eos.Notify:input_type -> eos.rpc.NotificationRequest
+	30,  // 110: eos.rpc.Eos.MD:input_type -> eos.rpc.MDRequest
+	16,  // 111: eos.rpc.Eos.Notification:input_type -> eos.rpc.NotificationRequest
+	33,  // 112: eos.rpc.Eos.Find:input_type -> eos.rpc.FindRequest
+	39,  // 113: eos.rpc.Eos.NsStat:input_type -> eos.rpc.NsStatRequest
+	18,  // 114: eos.rpc.Eos.ContainerInsert:input_type -> eos.rpc.ContainerInsertRequest
+	19,  // 115: eos.rpc.Eos.FileInsert:input_type -> eos.rpc.FileInsertRequest
+	37,  // 116: eos.rpc.Eos.Exec:input_type -> eos.rpc.NSRequest
+	79,  // 117: eos.rpc.Eos.TrafficShapingRate:input_type -> eos.traffic_shaping.TrafficShapingRateRequest
+	13,  // 118: eos.rpc.Eos.Ping:output_type -> eos.rpc.PingReply
+	15,  // 119: eos.rpc.Eos.Mcp:output_type -> eos.rpc.McpReply
+	17,  // 120: eos.rpc.Eos.Notify:output_type -> eos.rpc.NotificationResponse
+	31,  // 121: eos.rpc.Eos.MD:output_type -> eos.rpc.MDResponse
+	17,  // 122: eos.rpc.Eos.Notification:output_type -> eos.rpc.NotificationResponse
+	31,  // 123: eos.rpc.Eos.Find:output_type -> eos.rpc.MDResponse
+	40,  // 124: eos.rpc.Eos.NsStat:output_type -> eos.rpc.NsStatResponse
+	20,  // 125: eos.rpc.Eos.ContainerInsert:output_type -> eos.rpc.InsertReply
+	20,  // 126: eos.rpc.Eos.FileInsert:output_type -> eos.rpc.InsertReply
+	38,  // 127: eos.rpc.Eos.Exec:output_type -> eos.rpc.NSResponse
+	80,  // 128: eos.rpc.Eos.TrafficShapingRate:output_type -> eos.traffic_shaping.TrafficShapingRateResponse
+	118, // [118:129] is the sub-list for method output_type
+	107, // [107:118] is the sub-list for method input_type
 	107, // [107:107] is the sub-list for extension type_name
 	107, // [107:107] is the sub-list for extension extendee
 	0,   // [0:107] is the sub-list for field type_name
@@ -6395,7 +6522,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*NotificationRequest); i {
+			switch v := v.(*McpRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6407,7 +6534,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*NotificationResponse); i {
+			switch v := v.(*McpReply); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6419,7 +6546,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ContainerInsertRequest); i {
+			switch v := v.(*NotificationRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6431,7 +6558,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FileInsertRequest); i {
+			switch v := v.(*NotificationResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6443,7 +6570,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*InsertReply); i {
+			switch v := v.(*ContainerInsertRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6455,7 +6582,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Time); i {
+			switch v := v.(*FileInsertRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6467,7 +6594,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Checksum); i {
+			switch v := v.(*InsertReply); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6479,7 +6606,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FileMdProto); i {
+			switch v := v.(*Time); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6491,7 +6618,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ContainerMdProto); i {
+			switch v := v.(*Checksum); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6503,7 +6630,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QuotaProto); i {
+			switch v := v.(*FileMdProto); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6515,7 +6642,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RoleId); i {
+			switch v := v.(*ContainerMdProto); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6527,7 +6654,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MDId); i {
+			switch v := v.(*QuotaProto); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6539,7 +6666,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Limit); i {
+			switch v := v.(*RoleId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6551,7 +6678,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MDSelection); i {
+			switch v := v.(*MDId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6563,7 +6690,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MDRequest); i {
+			switch v := v.(*Limit); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6575,7 +6702,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MDResponse); i {
+			switch v := v.(*MDSelection); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6587,7 +6714,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MDNotification); i {
+			switch v := v.(*MDRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6599,7 +6726,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindRequest); i {
+			switch v := v.(*MDResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6611,7 +6738,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ShareAuth); i {
+			switch v := v.(*MDNotification); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6623,7 +6750,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ShareProto); i {
+			switch v := v.(*FindRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6635,7 +6762,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ShareToken); i {
+			switch v := v.(*ShareAuth); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6647,7 +6774,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*NSRequest); i {
+			switch v := v.(*ShareProto); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6659,7 +6786,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*NSResponse); i {
+			switch v := v.(*ShareToken); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6671,7 +6798,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*NsStatRequest); i {
+			switch v := v.(*NSRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6683,6 +6810,30 @@ func file_Rpc_proto_init() {
 			}
 		}
 		file_Rpc_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*NSResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_Rpc_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*NsStatRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_Rpc_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NsStatResponse); i {
 			case 0:
 				return &v.state
@@ -6694,7 +6845,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_MkdirRequest); i {
 			case 0:
 				return &v.state
@@ -6706,7 +6857,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RmdirRequest); i {
 			case 0:
 				return &v.state
@@ -6718,7 +6869,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_TouchRequest); i {
 			case 0:
 				return &v.state
@@ -6730,7 +6881,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_UnlinkRequest); i {
 			case 0:
 				return &v.state
@@ -6742,7 +6893,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RmRequest); i {
 			case 0:
 				return &v.state
@@ -6754,7 +6905,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RenameRequest); i {
 			case 0:
 				return &v.state
@@ -6766,7 +6917,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_SymlinkRequest); i {
 			case 0:
 				return &v.state
@@ -6778,7 +6929,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_VersionRequest); i {
 			case 0:
 				return &v.state
@@ -6790,7 +6941,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RecycleRequest); i {
 			case 0:
 				return &v.state
@@ -6802,7 +6953,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_SetXAttrRequest); i {
 			case 0:
 				return &v.state
@@ -6814,7 +6965,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_ChownRequest); i {
 			case 0:
 				return &v.state
@@ -6826,7 +6977,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_ChmodRequest); i {
 			case 0:
 				return &v.state
@@ -6838,7 +6989,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_AclRequest); i {
 			case 0:
 				return &v.state
@@ -6850,7 +7001,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[45].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_TokenRequest); i {
 			case 0:
 				return &v.state
@@ -6862,7 +7013,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[46].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_QuotaRequest); i {
 			case 0:
 				return &v.state
@@ -6874,7 +7025,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[45].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[47].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_ShareRequest); i {
 			case 0:
 				return &v.state
@@ -6886,7 +7037,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[46].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RecycleRequest_RestoreFlags); i {
 			case 0:
 				return &v.state
@@ -6898,7 +7049,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[47].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RecycleRequest_PurgeDate); i {
 			case 0:
 				return &v.state
@@ -6910,7 +7061,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_RecycleRequest_ListFlags); i {
 			case 0:
 				return &v.state
@@ -6922,7 +7073,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_ShareRequest_LsShare); i {
 			case 0:
 				return &v.state
@@ -6934,7 +7085,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSRequest_ShareRequest_OperateShare); i {
 			case 0:
 				return &v.state
@@ -6946,7 +7097,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_ErrorResponse); i {
 			case 0:
 				return &v.state
@@ -6958,7 +7109,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_VersionResponse); i {
 			case 0:
 				return &v.state
@@ -6970,7 +7121,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_RecycleResponse); i {
 			case 0:
 				return &v.state
@@ -6982,7 +7133,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_AclResponse); i {
 			case 0:
 				return &v.state
@@ -6994,7 +7145,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[58].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_QuotaResponse); i {
 			case 0:
 				return &v.state
@@ -7006,7 +7157,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[59].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_ShareInfo); i {
 			case 0:
 				return &v.state
@@ -7018,7 +7169,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[58].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[60].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_ShareAccess); i {
 			case 0:
 				return &v.state
@@ -7030,7 +7181,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[59].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[61].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_ShareResponse); i {
 			case 0:
 				return &v.state
@@ -7042,7 +7193,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[60].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[62].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_FileResponse); i {
 			case 0:
 				return &v.state
@@ -7054,7 +7205,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[61].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[63].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_VersionResponse_VersionInfo); i {
 			case 0:
 				return &v.state
@@ -7066,7 +7217,7 @@ func file_Rpc_proto_init() {
 				return nil
 			}
 		}
-		file_Rpc_proto_msgTypes[62].Exporter = func(v interface{}, i int) interface{} {
+		file_Rpc_proto_msgTypes[64].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NSResponse_RecycleResponse_RecycleInfo); i {
 			case 0:
 				return &v.state
@@ -7079,7 +7230,7 @@ func file_Rpc_proto_init() {
 			}
 		}
 	}
-	file_Rpc_proto_msgTypes[23].OneofWrappers = []interface{}{
+	file_Rpc_proto_msgTypes[25].OneofWrappers = []interface{}{
 		(*NSRequest_Mkdir)(nil),
 		(*NSRequest_Rmdir)(nil),
 		(*NSRequest_Touch)(nil),
@@ -7099,7 +7250,7 @@ func file_Rpc_proto_init() {
 		(*NSRequest_Recycle)(nil),
 		(*NSRequest_File)(nil),
 	}
-	file_Rpc_proto_msgTypes[45].OneofWrappers = []interface{}{
+	file_Rpc_proto_msgTypes[47].OneofWrappers = []interface{}{
 		(*NSRequest_ShareRequest_Ls)(nil),
 		(*NSRequest_ShareRequest_Op)(nil),
 	}
@@ -7109,7 +7260,7 @@ func file_Rpc_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_Rpc_proto_rawDesc,
 			NumEnums:      12,
-			NumMessages:   63,
+			NumMessages:   65,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

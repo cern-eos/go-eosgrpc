@@ -40,6 +40,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	Eos_Ping_FullMethodName               = "/eos.rpc.Eos/Ping"
+	Eos_Mcp_FullMethodName                = "/eos.rpc.Eos/Mcp"
 	Eos_Notify_FullMethodName             = "/eos.rpc.Eos/Notify"
 	Eos_MD_FullMethodName                 = "/eos.rpc.Eos/MD"
 	Eos_Notification_FullMethodName       = "/eos.rpc.Eos/Notification"
@@ -57,6 +58,10 @@ const (
 type EosClient interface {
 	// Replies to a ping
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error)
+	// Read-only Model Context Protocol endpoint for administration.
+	// The body fields are JSON-RPC documents. The server exposes status
+	// inspection and allowlisted log reads and rejects every other method.
+	Mcp(ctx context.Context, in *McpRequest, opts ...grpc.CallOption) (*McpReply, error)
 	// Replies to a notification
 	Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
@@ -85,6 +90,15 @@ func NewEosClient(cc grpc.ClientConnInterface) EosClient {
 func (c *eosClient) Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error) {
 	out := new(PingReply)
 	err := c.cc.Invoke(ctx, Eos_Ping_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eosClient) Mcp(ctx context.Context, in *McpRequest, opts ...grpc.CallOption) (*McpReply, error) {
+	out := new(McpReply)
+	err := c.cc.Invoke(ctx, Eos_Mcp_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -270,6 +284,10 @@ func (x *eosTrafficShapingRateClient) Recv() (*trafficshaping.TrafficShapingRate
 type EosServer interface {
 	// Replies to a ping
 	Ping(context.Context, *PingRequest) (*PingReply, error)
+	// Read-only Model Context Protocol endpoint for administration.
+	// The body fields are JSON-RPC documents. The server exposes status
+	// inspection and allowlisted log reads and rejects every other method.
+	Mcp(context.Context, *McpRequest) (*McpReply, error)
 	// Replies to a notification
 	Notify(context.Context, *NotificationRequest) (*NotificationResponse, error)
 	// Replies to MD requests with a stream
@@ -293,6 +311,9 @@ type UnimplementedEosServer struct {
 
 func (UnimplementedEosServer) Ping(context.Context, *PingRequest) (*PingReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
+}
+func (UnimplementedEosServer) Mcp(context.Context, *McpRequest) (*McpReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Mcp not implemented")
 }
 func (UnimplementedEosServer) Notify(context.Context, *NotificationRequest) (*NotificationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Notify not implemented")
@@ -347,6 +368,24 @@ func _Eos_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EosServer).Ping(ctx, req.(*PingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Eos_Mcp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(McpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EosServer).Mcp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Eos_Mcp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EosServer).Mcp(ctx, req.(*McpRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -535,6 +574,10 @@ var Eos_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Ping",
 			Handler:    _Eos_Ping_Handler,
+		},
+		{
+			MethodName: "Mcp",
+			Handler:    _Eos_Mcp_Handler,
 		},
 		{
 			MethodName: "Notify",
